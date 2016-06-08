@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>10亿红包从天而降，揭秘微信摇一摇背后的技术细节 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="编者按与传统意义上的红包相比，近两年火起来的“红包”，似乎才是如今春节的一大重头戏。历经上千年时代传承与变迁，春节发红包早已成为历史沉淀的文化习俗，融入了民族的血脉。按照各家公布的数据，除夕全天微信用户红包总发送量达到80.8亿个，红包峰值收发量为40.9万个/秒。春晚直播期间讨论春晚的微博达到5191万条，网友互动量达到1.15亿，网友抢微博红包的总次数超过8亿次。为此，InfoQ策划了“春节红">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10亿红包从天而降，揭秘微信摇一摇背后的技术细节">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="编者按与传统意义上的红包相比，近两年火起来的“红包”，似乎才是如今春节的一大重头戏。历经上千年时代传承与变迁，春节发红包早已成为历史沉淀的文化习俗，融入了民族的血脉。按照各家公布的数据，除夕全天微信用户红包总发送量达到80.8亿个，红包峰值收发量为40.9万个/秒。春晚直播期间讨论春晚的微博达到5191万条，网友互动量达到1.15亿，网友抢微博红包的总次数超过8亿次。为此，InfoQ策划了“春节红">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-4161c7be52145076.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-3075d26310dc2e4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-69a7ff6075ef1434.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-ec03026f1bf186b8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-e695c7b37385d176.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10亿红包从天而降，揭秘微信摇一摇背后的技术细节">
+<meta name="twitter:description" content="编者按与传统意义上的红包相比，近两年火起来的“红包”，似乎才是如今春节的一大重头戏。历经上千年时代传承与变迁，春节发红包早已成为历史沉淀的文化习俗，融入了民族的血脉。按照各家公布的数据，除夕全天微信用户红包总发送量达到80.8亿个，红包峰值收发量为40.9万个/秒。春晚直播期间讨论春晚的微博达到5191万条，网友互动量达到1.15亿，网友抢微博红包的总次数超过8亿次。为此，InfoQ策划了“春节红">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-4161c7be52145076.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/行业观点/">行业观点</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      10亿红包从天而降，揭秘微信摇一摇背后的技术细节
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <p>编者按<br>与传统意义上的红包相比，近两年火起来的“红包”，似乎才是如今春节的一大重头戏。历经上千年时代传承与变迁，春节发红包早已成为历史沉淀的文化习俗，融入了民族的血脉。按照各家公布的数据，除夕全天微信用户红包总发送量达到80.8亿个，红包峰值收发量为40.9万个/秒。春晚直播期间讨论春晚的微博达到5191万条，网友互动量达到1.15亿，网友抢微博红包的总次数超过8亿次。<br>为此，InfoQ策划了“春节红包”系列文章，以期为读者剖析各大平台的红包活动背后的技术细节。本文为微信篇。<br>2016年春节的三波红包雨——摇红包已经过去一段时间，面对亿级的企业资金以及亿级的红包，回想这其中的过程并不简单，充满各种变数，稍有闪失就可能功亏一篑。让我们一起回顾一下这里的准备过程，看看技术上是如何为这只许成功不许失败的项目保驾护航的。</p>
+<p>相关厂商内容<br><a href="http://www.infoq.com/infoq/url.action?i=10745&amp;t=f" target="_blank" rel="external">滴滴出行iOS客户端架构演进之路！</a><br><a href="http://www.infoq.com/infoq/url.action?i=10746&amp;t=f" target="_blank" rel="external">微信客户端如何应对弱网络！</a><br><a href="http://www.infoq.com/infoq/url.action?i=10747&amp;t=f" target="_blank" rel="external">函数式编程中的Swift与Swift中的函数式编程！</a><br><a href="http://www.infoq.com/infoq/url.action?i=11264&amp;t=f" target="_blank" rel="external">你离成为一位合格的技术领导者还有多远？</a><br><a href="http://www.infoq.com/infoq/url.action?i=11078&amp;t=f" target="_blank" rel="external">国际范 最前沿 不容错过的容器技术盛会</a></p>
+<p>相关赞助商<br><a href="http://www.infoq.com/infoq/url.action?i=10751&amp;t=f" target="_blank" rel="external"><img src="http://upload-images.jianshu.io/upload_images/266271-4161c7be52145076.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a><strong>GMTC全球移动技术大会2016年6月24日-25日，北京，<a href="http://www.infoq.com/infoq/url.action?i=10750&amp;t=f" target="_blank" rel="external">点击了解详情</a>！</strong></p>
+<p>一 除夕活动红包系统<br>红包系统由三部分组成：信息流、业务流和资金流。这三部分在组织架构上由不同的后台团队完成：信息流——微信后台，业务流——微信支付后台，资金流——财付通后台。<br>在平时，红包系统主要处理个人会话中以消息形式发出的红包。其中，信息流主要包括用户操作背后的请求通信和红包消息在不同用户和群中的流转；业务流是用户请求引发的包红包、抢红包和拆红包等的业务逻辑；资金流则是红包背后的资金转账和入账等流程。<br>红包系统在除夕活动时和平时的实现不大一样。在除夕活动时，除了个人红包外，红包系统还要处理由后台通过摇一摇集中下发的大量企业红包。这里边信息流的实现变化较大。</p>
+<p>接下来简单介绍一下2016年除夕活动时的红包系统架构，包括三个方面：资源预下载、摇红包、拆红包。<br>(点击放大图像)<br><a href="http://cdn.infoqstatic.com/statics_s2_20160517-0032u4/resource/articles/1-billion-bonus-from-the-clouds/zh/resources/020.png" target="_blank" rel="external"><img src="http://upload-images.jianshu.io/upload_images/266271-3075d26310dc2e4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a><br>1 资源预下载<br>在除夕，用户通过摇一摇参与活动，可以摇到红包或其他活动页，这些页面需要用到很多图片、视频或H5页面等资源。在活动期间，参与用户多，对资源的请求量很大，如果都通过实时在线访问，服务器的网络带宽会面临巨大压力，基本无法支撑；另外，资源的尺寸比较大，下载到手机需要较长时间，用户体验也会很差。因此，我们采用预先下载的方式，在活动开始前几天把资源推送给客户端，客户端在需要使用时直接从本地加载。<br>2 摇/拆红包<br>除夕的摇一摇子系统是专门为活动定制的，按时间轴进行各项活动，这里边最重要、同时也是请求量最大的是摇红包。从需求上看，系统需要完成两个事：用户可以通过摇一摇抢到红包，红包金额可以入到用户的支付账户。在除夕，系统需要在很短时间内将几十亿个红包发放下去，对性能和可用性要求很高。考虑到涉及资金的业务逻辑比较复杂，还有很多数据库事务处理，耗时会比较长，于是我们将抢红包（信息流）和红包的账务逻辑（业务流和资金流）异步化。将前一部分处理流程尽可能设计得轻量，让用户可以很快抢到红包，然后再异步完成剩下的账务逻辑。<br>那么，抢红包阶段是怎样做到既轻量又可靠呢？<br>1）零RPC调用<br>在微信后台系统中，一般情况下客户端发起的请求都是通过接入服务转发给具体的业务服务处理的，会产生RPC调用。但对于摇一摇请求，我们将摇一摇逻辑直接嵌入接入服务中，接入服务可以直接处理摇一摇请求，派发红包。<br>2）零数据库存储<br>按一般的系统实现，用户看到的红包在系统中是数据库中的数据记录，抢红包就是找出可用的红包记录，将该记录标识为属于某个用户。在这种实现里，数据库是系统的瓶颈和主要成本开销。我们在这一过程完全不使用数据库，可以达到几个数量级的性能提升，同时可靠性有了更好的保障。<br>支付系统将所有需要下发的红包生成红包票据文件;<br>将红包票据文件拆分后放到每一个接入服务实例中；<br>接收到客户端发起摇一摇请求后，接入服务里的摇一摇逻辑拿出一个红包票据，在本地生成一个跟用户绑定的加密票据，下发给客户端；<br>客户端拿加密票据到后台拆红包，后台的红包简化服务通过本地计算即可验证红包，完成抢红包过程。</p>
+<p>3）异步化<br>用户抢到红包后不会同步进行后续的账务处理，请求会被放入红包异步队列，再通过异步队列转给微信支付后台，由微信支付后台完成后续业务逻辑。<br>二 大规模集群中保证数据一致性<br>事实上网络分裂很难从根本上避免，我们在设计系统时都是假设网络分裂一定会出现，基于此思考应该采用什么方案保障系统在网络分裂时能正常运作。<br>我们的方案是在每个数据中心都建设三个独立的数据园区，可以做到在任意一个数据园区出现网络分裂等故障，甚至彻底变成园区孤岛后，另外两个数据园区可以无损承接整个数据中心的请求。<br>三园区容灾的关键就是数据一致性。我们需要做到在分裂出去的那个数据园区的数据在其他园区有个强一致的副本，这样请求落到其他两个园区后，可以无损完成服务，此外在故障园区恢复后，数据在所有园区还能自动保持强一致。微信后台实现了基于Quorum算法，对数据有强一致性保证的存储系统——KvSvr（这一存储系统另文介绍）。此外还有可以提供三园区强一致保证的可靠异步队列，这次就应用在这个红包系统中。前边提到的部署在接入服务的红包文件实际上也是可以实现三园区容灾的，我们在每台接入服务部署的红包文件都会在其他数据园区有个备份。在某个数据园区故障时，我们可以在其他数据园区发放故障园区的红包。<br>今年活动红包总量非常大，活动形式也更丰富，我们在以下方面做了优化。<br>1 服务性能<br>为提升各个服务模块的处理性能，我们通过压测和Profiler分析，发现了不少性能瓶颈点，做了大量优化。<br>2 业务支撑能力<br>支持更加复杂的业务场景，并在客户端和服务器都加入了很多可以后期灵活调整的预埋能力，以更好地服务产品运营。<br>3 可用性<br>不断提升系统可用性是我们一直努力的目标，以下5点很好地提高了系统的可用性。<br>1）系统容量评估与配额<br>对系统的容量需要有个准确的评估与验证，并结合业务设计合理的配额方案和降级方案，尽可能保障系统不会过载。例如，我们评估并验证完系统每秒最大拆红包量后，就可以在处理用户摇一摇请求时，限制系统每秒最大发放红包配额，这就间接保证了拆红包量不会超出处理能力。<br>2）过载保护<br>服务如果出现过载了，必须有能力自保，不被压垮，并且不扩散到系统其他的服务。我们在后台的服务框架层面具备通用的过载保护能力：服务如果处理不过来，就按请求的优先级尽快丢掉超出处理能力的请求，保证服务的有效输出；上游调用端在部分服务实例过载时，能自动做负载均衡调整，将请求调整到负载较低的服务实例中；上游调用端发现大部分服务实例都出现过载，也可以主动丢掉部分请求，减轻后端服务器的负担。<br>3）减少关键路径<br>减少核心用户体验所涉及的步骤和模块，集中力量保证关键路径的可用性，从而在整体上提高可用性。我们把活动红包的信息流和业务流进行异步化，就是基于这个考虑。跟用户核心体验相关的抢红包操作，在信息流中的接入服务、红包简化逻辑服务和红包异步队列（入队）这三个服务模块参与下即可完成。这三个服务模块是可以比较容易用较低成本就做到高可用的，可以较好地规避业务流和资金流中几十甚至上百个服务模块可能出现的风险。<br>4）监控指标<br>我们需要对系统的真实负载情况有准确及时的了解，就必须要有一套高效、可靠的监控系统，同时还要有一套有效的监控指标，监控指标不是越多越好，太多了反而会影响判断，必须要有能准确反映问题的几个核心指标。在我们系统里，这些核心指标一般在基础框架集成，根据经验来看，其中一个很有用的指标是服务的最终系统失败。我们把服务的失败分为两类：逻辑失败和系统失败。系统失败一般是服务暂时不可用导致，是可通过重试来自动解决的，如果请求重试若干次仍然为系统失败，就产生最终系统失败。通过最终系统失败通常可以快速定位到异常的服务，及时进行处置。<br>5）人工介入<br>我们在红包系统内预置了很多配置开关，当自动运作的过载保护无法发挥预期作用时，可以通过人工介入，使用这些保底的手动开关迅速降低负载、恢复服务。<br>三 技术创新<br>实际上，类似的这种活动用到的技术都是现成的，并不复杂。但为什么大家会觉得很难实现呢？主要是因为规模：用户和请求的并发规模越大，就越难在系统的成本和可用性上达到平衡，也就是说越难实现一个低运营成本、高服务可用性的系统。<br>在传统的应对这种有很大规模用户参与的活动的实现方案里，一般会采用在客户端过滤请求，以某种概率（基于时间或互动次数）发到服务器进行处理，这样服务器的压力可以大幅降低。<br>我们认为还可以做得更好，在这种活动的技术方案上可以有所突破——在保持低成本的前提下，全量处理用户的每次交互。这就大大降低了客户端的实现风险（因为客户端的更新和覆盖周期相对较长）。此外，服务器有了对用户交互有了全面的控制能力和灵活调整的能力。<br>这些能力对活动的运营是非常可贵的。可以让我们在活动过程中，各种复杂用户场景下，都能做到精细的调整，给了产品运营很大的灵活性，以保证活动效果和用户体验。看看下面两个例子。<br>我们可以精确控制和调整每次用户交互出现什么结果，曝光哪个赞助商；<br>活动过程中，有个很难预估的因素——参与人数。说不准参与的用户少了（或互动次数少了），导致红包很久都发不完？或者参与的用户多了（或互动次数多了），导致需要加快发放速度，更快速发完红包？</p>
+<p>于是我们对这个技术方案做了全面的思考和设计，最终实现了现在这个系统，可以用很低的成本实现极高的性能和可用性，在除夕活动中得到了成功的应用。<br>四 服务降级方案<br>我们对摇一摇/朋友圈红包照片在2016.1.26的预热活动和2016.2.7的正式活动都做了详细的复盘。包括活动过程中各项业务数据是否符合预期，各个模块的表现是否符合预期等，并分析各种不符合预期表现的成因和解决措施。<br>在红包系统的信息流、业务流和资金流都有很多保障用户核心体验的降级方案。举几个信息流的降级方案的例子。<br>a） 如果某一个数据园区出现网络分裂等故障，完全不可用了，部署在那里的红包怎么发下去？<br>红包文件虽然在园区间有冗余存储，但基于性能和可用性考虑，我们并不打算在各园区间维护强一致的红包发放记录，做到记录级的“断点续发”，而是将红包文件按时段进行切分，降级为只做文件级的“断点续发”。在某个园区不可用时，使用降级方案后，故障园区当前发放时段的红包文件不会接着发放，仅保证下一时段的红包能通过其他园区正常发出去。<br>b）活动过程中，如果用户的交互量超过服务的处理能力了怎么办？<br>正如前面所述，我们很难准确估计参与用户量及互动次数。就本次活动而言，在系统设计之初，我们评估有2000万次/秒的峰值请求，并在系统最终实现和部署时预留了一定的余量，提供了评估值2.5倍（也就是5000万次/秒峰值请求）的系统处理能力，除夕当晚服务器处理请求峰值达到2500万次/秒，服务实际负载低于50%。但如果当时用户过多，互动过于火爆，到达后台的请求超过5000万次/秒，系统就会进入降级模式，客户端可以在服务器的控制下，减少请求，防止服务器过载。<br>c）红包发放速度过快，后端处理不过来怎么办？<br>正如前面所述，用户抢红包是在信息流完成的，完成后请求放到红包异步队列再转到业务流。如果领取红包请求量过大，队列会出现积压，红包的入账会出现延时，但不会导致用户请求失败。<br>类似的降级方案还有很多，每个环节都有若干个不同的降级方案，有些是针对业务专门设计的（如a和b），还有些是使用基础组件/服务/方案本身就具备的降级能力（如c）。这些方案都遵循着一个原则：降级时，尽可能保证用户的核心体验。<br>五 资金与红包准备的难点<br>除夕活动资金和红包准备的难点总体来说有以下4点。<br>1）红包的数量<br>由于招商的不确定性，最终投入微信摇企业红包的资金不可准确预估；<br>不同的商户其对品牌的曝光量的需求不同，有的要求多曝光，有的要求多关注，红包金额或大或小，数量则或多或少；<br>从准备到除夕当天，期间各种变化，活动方案变数很多。红包的数量可能从几亿到几百亿变化，资金与红包的准备需要能够满足需求的巨大变化。</p>
+<p>2）资金的就位<br>企业各行各业，营销经费的审批流程不尽相同，资金最终支付到位时间前后差异很大，甚至有些在除夕前一周才会最终敲定支付到账；<br>某些企业可能在最后阶段停止合作；<br>某些企业可能在最后阶段调整资金的使用方式。以上情况会导致资金的到位时间不完全可控，本着尽可能多的资金能够投入到活动中的原则，希望可以尽可能压缩活动的准备时间，让更多的资金能够上车。</p>
+<p>3）资金预算的配置方案（资金剧本）<br>按设想的活动方案，红包会分为三大类：图片红包、视频红包、品牌logo红包。活动方案较去年又有新的变化，特别是logo红包的认知度和接受度不确定，logo红包过度会否导致未领完而浪费资金，不容易确定logo红包的资金占比；<br>除夕当天的活动剧本可能会反复调整优化，红包时段的划分可能修改，不同时段的资金投放量可能变化。大笔资金、大量的红包、复杂的活动方案、善变的商户要求，都可能反复调整，如果面对百亿量级的红包配置调整时，技术上如何实现缩短准备时间，支持方便的变化。</p>
+<p>4）资金的安全<br>如何防止红包的金额被篡改；<br>如何防止未被领取的红包被入账给用户；<br>如何防止红包金额重复入账给用户；<br>如何防止机器被攻破产生了不存在的红包；<br>如何防止红包被不同用户重复领取；<br>如何在确保资金安全的情况下尽可能保证用户的到账体验（最好是实时或准实时到账）。技术上必须做万无一失的准备，确保资金足够安全，活动顺利完成。</p>
+<p>六 微信摇企业红包全过程<br>如果在除夕当天摇的过程中按前边提到的超级复杂的配置方案即时生成随机红包，这显然是风险齐高逻辑奇复杂的。对待只许成功不许失败的项目，主流程必须极简高效，所以这里全部的资金和红包数量都需要按方案规则提前切分和准备好。<br>将预生成好的红包数据（预红包数据）进行准确的部署，摇红包的资金和红包准备的整体流程方案有两个选择。<br>(点击放大图像)<br><a href="http://cdn.infoqstatic.com/statics_s2_20160517-0032u4/resource/articles/1-billion-bonus-from-the-clouds/zh/resources/021.jpg" target="_blank" rel="external"><img src="http://upload-images.jianshu.io/upload_images/266271-69a7ff6075ef1434.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a><br>方案一：预红包数据提供部署给微信的接入机和写入红包DB，摇红包过程由红包接入机控制红包的发放，拆红包时修改红包DB中的红包数据；方案二：预红包数据只提供部署给微信接入机，摇红包过程由红包接入机控制红包的发放，拆红包直接Insert到红包DB。</p>
+<p>第二个方案减少一次DB操作，如果是百亿量级的红包数据，可以极大减少数据导入、对账等活动准备时间，特别是方案需要变更时。<br>七 充足准备<br>1 对资金预算和资金剧本进行合理的建模<br>首先，面对如此大量的资金和复杂的资金剧本，如何准确高效地管理和控制逻辑呢？要杜绝傻大黑粗，我们需要一个优雅的解决方案——建模。<br>(点击放大图像)<br><a href="http://cdn.infoqstatic.com/statics_s2_20160517-0032u4/resource/articles/1-billion-bonus-from-the-clouds/zh/resources/022.jpg" target="_blank" rel="external"><img src="http://upload-images.jianshu.io/upload_images/266271-ec03026f1bf186b8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a><br>对资金预算和资金剧本进行合理的建模，让模型涵盖、掌管、控制一切——让工具基于模型进行自动化的处理和校验，这里需要做的就是：<br>落地该模型的设计，让一切围着模型转；<br>按规定的格式文件导入预算和配置，并进行数据和逻辑合理性校验；<br>一切利用工具进行处理，资金的支付、退款、红包的随机生成和多商户随机打散、预红包文件分割、预红包数据的校验，减少人为过程导致的潜在失误；<br>优化红包随机算法和文件处理方法，将红包随机分割和多商户随机打散算法的n^2时间复杂度优化n，压测30亿红包的生成时间为2~3小时，极大缩减准备时间，增加方案调整的回旋时间，可以让更多的资金上车。</p>
+<p>其次，前边提到方案有如此多的变数、调整、变更，如何支持？还是回归模型，建模时就要考虑支持同样的预算多套资金配置方案。<br>(点击放大图像)<br><a href="http://cdn.infoqstatic.com/statics_s2_20160517-0032u4/resource/articles/1-billion-bonus-from-the-clouds/zh/resources/023.jpg" target="_blank" rel="external"><img src="http://upload-images.jianshu.io/upload_images/266271-e695c7b37385d176.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a><br>同样的资金预算，同时或依次生成多套预红包数据文件，提前做多手准备，方便方案变更。<br>再次，如此大量的资金就意味着如此大量的诱惑，会不会出问题呢？<br>方案预红包数据未提前落地DB，导致拆红包时缺少一次红包数据有效性的检验；<br>预红包数据存放在微信接入机上，存在被攻陷获取或篡改的可能；<br>红包数据在传输的过程中存在系统异常或恶意攻击，导致数据错误特别是金额错误的可能；<br>系统内部可能存在恶意人员直接调用拆红包的接口写入不存在的红包。</p>
+<p>墨菲定律要求我们必须重视以上安全隐患，解决方案就是加密——对预红包数据进行加密，加密库和解密库独立维护保证密钥不被泄漏，通过工具生成预红包数据时用密钥进行加密，预红包数据在部署存储和传输的过程中保持加密状态，仅在拆红包的逻辑中编译二进制紧密库进行解密。<br>同时，鸡蛋也不能放在一个篮子里，为了控制密钥泄漏导致的影响，确保资金风险可控，整个预生成的红包数据可能分别使用了几百到几千个密钥进行加密，一个密钥加密的红包资金量在20~30万。解密库还需要能设置密钥ID的白名单和黑名单，确保未被使用的密钥不能被利用，确认泄漏的密钥可以进行拦截。<br>2 极限压缩<br>如果是百亿个红包，那么产生预红包数据文件的大小不经过压缩是非常恐怖的，传输部署几百GB或几TB的数据是很艰苦的，一旦发生调整变更会变得非常艰难，所以需要对数据进行极限的压缩。<br>对于支付单号、商户号、红包账户等信息，由工具导成配置文件，配置到拆红包逻辑中，加密的红包数据中仅用一个批次ID表达；<br>拆分红包ID，部分分段同样转为ID，解密库解密后利用配置进行还原；<br>加密部分（Ticket）：红包ID、金额、批次ID、密钥ID，压缩到16字节；<br>单条红包记录二进制表达，压缩到26字节。</p>
+<p>3 对账<br>上面所有都做到就安全了么？真的就有人写了一个不存在红包进来会怎样？是否还有其他未考虑到的潜在风险？所以我们需要一个兜底——对账，把一切都要对清楚才放心。<br>对账后再入账的时效在30~60分钟，会造成不好的用户体验。为了提升用户体验，将大额的预红包数据（占比10%左右）导入KV（高速缓存），拆红包时进行即时校验，即时进行转账入账，未命中KV的红包则等待对账后异步完成入账。<br>资金配置与资金预算要总分对账；<br>红包数据文件与资金剧本进行总分对账；<br>红包数据进行全局去重验证；<br>红包数据进行解密验证和金额验证；<br>如果密钥泄漏红包金额等被篡改，兜底要进行红包DB中已拆红包数据与预红包数据的对账后，才能实际进行转账入账。</p>
+<p>小结<br>未来我们可能还继续会有类似的活动，虽然我们已经有了一个经过实践的可复用的技术方案，接下来我们希望能够继续优化，并实现一些可复用的模块和服务，可以快速应用到下一次活动或者其他业务场景中。例如，我们在2015年春节首次完成除夕活动后，就把其中的资源预下载系统进行了完善和通用化，随后应用在多个业务场景和这次的2016年除夕活动中。未来可以有更多类似的系统和服务可以被复用和通用化。<br>作者介绍<br><strong>张文瑞</strong> 一直从事后台系统设计开发，早期涉足传统行业软件，后投身互联网。作为微信最早的后台开发者之一，见证了微信从零开始到逐渐发展壮大的过程。<br><strong>王鹏程</strong> 微信支付商户系统开发组组长，专家工程师。2008年加入腾讯，6年的电商经验，做过c2c、b2b2c、b2c及erp，2年第三方支付开发经验。<br>感谢<a href="http://www.infoq.com/cn/author/%E9%99%88%E5%85%B4%E7%92%90" target="_blank" rel="external">陈兴璐</a>对本文的审校。<br>给InfoQ中文站投稿或者参与内容翻译工作，请邮件至<a href="mailto:editors@cn.infoq.com" target="_blank" rel="external">editors@cn.infoq.com</a>。也欢迎大家通过新浪微博（<a href="http://www.weibo.com/infoqchina" target="_blank" rel="external">@InfoQ</a>，<a href="http://weibo.com/u/1451714913" target="_blank" rel="external">@丁晓昀</a>），微信（微信号：<a href="http://weixin.sogou.com/gzh?openid=oIWsFt0HnZ93MfLi3pW2ggVJFRxY" target="_blank" rel="external">InfoQChina</a>）关注我们。</p>
+<p>原文地址：<a href="http://www.infoq.com/cn/articles/1-billion-bonus-from-the-clouds" target="_blank" rel="external">http://www.infoq.com/cn/articles/1-billion-bonus-from-the-clouds</a></p>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/" data-id="cip68guld003d10bm7lfs9e6c" class="article-share-link" data-share="baidu" data-title="10亿红包从天而降，揭秘微信摇一摇背后的技术细节">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          MAC OS X上更改XAMPP的根目录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">CoacoaPods的安装与使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

@@ -4,17 +4,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/6 | 袁俊亮技术博客</title>
+  <title>NSDate | 袁俊亮技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="袁俊亮技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+  <meta name="description" content="NSDate标签（空格分隔）： OC
+
+将字符串转换成固定格式的时间123456789101112// 时间格式NSDateFormatter *formatter = [[NSDateFormatter alloc] init];formatter.dateFormat = @&quot;yyyy-MM-dd&apos;T&apos; HH:mm:ss&quot;;NSString *dateString = @&quot;1460943215">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSDate">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/IOS零碎知识点/NSDate/index.html">
 <meta property="og:site_name" content="袁俊亮技术博客">
-<meta property="og:description">
+<meta property="og:description" content="NSDate标签（空格分隔）： OC
+
+将字符串转换成固定格式的时间123456789101112// 时间格式NSDateFormatter *formatter = [[NSDateFormatter alloc] init];formatter.dateFormat = @&quot;yyyy-MM-dd&apos;T&apos; HH:mm:ss&quot;;NSString *dateString = @&quot;1460943215">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="袁俊亮技术博客">
-<meta name="twitter:description">
+<meta name="twitter:title" content="NSDate">
+<meta name="twitter:description" content="NSDate标签（空格分隔）： OC
+
+将字符串转换成固定格式的时间123456789101112// 时间格式NSDateFormatter *formatter = [[NSDateFormatter alloc] init];formatter.dateFormat = @&quot;yyyy-MM-dd&apos;T&apos; HH:mm:ss&quot;;NSString *dateString = @&quot;1460943215">
   
     <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
   
@@ -71,210 +78,75 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
+      <section id="main"><article id="post-IOS零碎知识点/NSDate" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/IOS零碎知识点/NSDate/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+    <h1 class="article-title" itemprop="name">
+      NSDate
     </h1>
   
 
-    </header>
-  </div>
-</article>
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
   
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
-    </h1>
-  
+      <h1 id="NSDate"><a href="#NSDate" class="headerlink" title="NSDate"></a>NSDate</h1><p>标签（空格分隔）： OC</p>
+<hr>
+<h2 id="将字符串转换成固定格式的时间"><a href="#将字符串转换成固定格式的时间" class="headerlink" title="将字符串转换成固定格式的时间"></a>将字符串转换成固定格式的时间</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间格式</span></span><br><span class="line"><span class="built_in">NSDateFormatter</span> *formatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line">formatter.dateFormat = <span class="string">@"yyyy-MM-dd'T' HH:mm:ss"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *dateString = <span class="string">@"1460943215"</span>;</span><br><span class="line"><span class="comment">// 将字符串转成NSDate</span></span><br><span class="line"><span class="built_in">NSTimeInterval</span> time = [dateString doubleValue];</span><br><span class="line"><span class="built_in">NSDate</span> *creatDate = [<span class="built_in">NSDate</span> dateWithTimeIntervalSince1970:time];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将NSDate转成固定格式的字符串</span></span><br><span class="line"><span class="built_in">NSString</span> *dateString = [formatter stringFromDate:creatDate];</span><br><span class="line"><span class="keyword">self</span>.dateLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,dateString];</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
+    
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
+</div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
+        <a data-url="http://yoursite.com/2016/06/08/IOS零碎知识点/NSDate/" data-id="cip68guj6000z10bm6qptjqyw" class="article-share-link" data-share="baidu" data-title="NSDate">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中数据持久化方式/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/">Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中的正则/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中的正则/">IOS中的正则</a>
-    </h1>
+    <a href="/2016/06/08/IOS零碎知识点/IOS从URL中获得文件名/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          IOS从URL中获得文件名
+        
+      </div>
+    </a>
   
+  
+    <a href="/2016/06/08/IOS零碎知识点/UIView,UIButton,UIImageView等设置圆角，设置阴影，设置边框的方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">UIView,UIButton,UIImageView等设置圆角，设置阴影，设置边框的方法</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/Iphone屏幕尺寸/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/Iphone屏幕尺寸/">Iphone屏幕尺寸</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/全局常量的定义、const和指针的区别/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/全局常量的定义、const和指针的区别/">全局常量的定义、const和指针的区别</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/SVN项目管理/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/SVN项目管理/">SVN项目管理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
       
       <aside id="sidebar">

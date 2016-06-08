@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Dropzone和七牛云存储来优化博客图床 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用Dropzone和七牛云存储来优化博客图床标签（空格分隔）： PHP
+
+之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。
+
+设置七牛帐号七牛是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Dropzone和七牛云存储来优化博客图床">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/UI/使用Dropzone和七牛云存储来优化博客图床/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="使用Dropzone和七牛云存储来优化博客图床标签（空格分隔）： PHP
+
+之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。
+
+设置七牛帐号七牛是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-387af2236b7a6d0b.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-53bbee3812d27211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-83d9e8d2e24b38e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-15332efdfe66889a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Dropzone和七牛云存储来优化博客图床">
+<meta name="twitter:description" content="使用Dropzone和七牛云存储来优化博客图床标签（空格分隔）： PHP
+
+之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。
+
+设置七牛帐号七牛是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-387af2236b7a6d0b.gif?imageMogr2/auto-orient/strip">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-UI/使用Dropzone和七牛云存储来优化博客图床" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/UI/使用Dropzone和七牛云存储来优化博客图床/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Dropzone和七牛云存储来优化博客图床
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="使用Dropzone和七牛云存储来优化博客图床"><a href="#使用Dropzone和七牛云存储来优化博客图床" class="headerlink" title="使用Dropzone和七牛云存储来优化博客图床"></a>使用Dropzone和七牛云存储来优化博客图床</h1><p>标签（空格分隔）： PHP</p>
+<hr>
+<p>之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-387af2236b7a6d0b.gif?imageMogr2/auto-orient/strip" alt="1-1.gif"></p>
+<h2 id="设置七牛帐号"><a href="#设置七牛帐号" class="headerlink" title="设置七牛帐号"></a>设置七牛帐号</h2><p>七牛是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理流，用来作为博客图床非常合适，而且价格不贵，每月有免费的10G流量。</p>
+<h3 id="1-去七牛注册帐号"><a href="#1-去七牛注册帐号" class="headerlink" title="1 去七牛注册帐号"></a>1 去七牛注册帐号</h3><p>刚刚创建的帐号是测试帐号，完成个人认证就可以成为标准帐号，获得10G的存储空间和各10G的上传下载流量。</p>
+<h3 id="2-创建一个空间"><a href="#2-创建一个空间" class="headerlink" title="2 创建一个空间"></a>2 创建一个空间</h3><p>创建空间也比较容易，记得选择公开空间。</p>
+<h2 id="设置Dropzone"><a href="#设置Dropzone" class="headerlink" title="设置Dropzone"></a>设置Dropzone</h2><p><a href="https://aptonic.com/" target="_blank" rel="external">Dropzone</a>是我很早就非常喜欢的一个软件。它通过拖拽的方式，增强了文件的处理流程。一直懒得给它开发插件，没想到七牛的SDK如此好用，所以今天折腾了一下搞定了。</p>
+<blockquote>
+<p>注：如果买不起可以选择使用免费破解版<br>地址：链接: <a href="http://pan.baidu.com/s/1c2v5gWg" target="_blank" rel="external">http://pan.baidu.com/s/1c2v5gWg</a> 密码: pj3g</p>
+</blockquote>
+<h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><p>这个软件可以在App Store上直接购买，但是买到的是功能受限的，它不能操作外部文件。不过没有关系，再从官网上下载非沙箱版本，然后覆盖掉Application文件夹下的即可。</p>
+<h3 id="安装Qiniu插件"><a href="#安装Qiniu插件" class="headerlink" title="安装Qiniu插件"></a>安装Qiniu插件</h3><p>我把这个插件放到了<a href="https://github.com/suyan/scripts/tree/master/Dropzone%20Action" target="_blank" rel="external">Github</a>上，戳<a href="https://github.com/suyan/scripts/blob/master/Dropzone%20Action/Qiniu.dzbundle.zip?raw=true" target="_blank" rel="external">这里</a>下载。</p>
+<blockquote>
+<p>注：我已经将其保存到自己网盘，若上述链接失效，可以通过下列方法获取<br>链接: <a href="http://pan.baidu.com/s/1dFhVUDz" target="_blank" rel="external">http://pan.baidu.com/s/1dFhVUDz</a> 密码: pnv5</p>
+</blockquote>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>下载后的是一个zip包，把这个包解压以后双击安装即可。</p>
+<h3 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h3><p>从增加列表中选择我们安装好的七牛插件。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-53bbee3812d27211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-2.png"></p>
+<p>然后填写配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server: 七牛上的空间名</span><br><span class="line">username: 七牛的access_key</span><br><span class="line">password: 七牛的secret_key</span><br><span class="line">remote path(可选): 本地同步图片的目录，如果你希望本地也存一份图片，选一个地址即可</span><br><span class="line">root url: 七牛的公共链接根目录</span><br></pre></td></tr></table></figure></p>
+<p>Remote Path 用于将随时在各个目录下拖拽上传的文件备份在本地目录一个选定文件夹中。填写该选项测试时总报错，不知具体的路径逻辑是怎么样的，不过可以忽略。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-83d9e8d2e24b38e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-3.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-15332efdfe66889a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-4.png"></p>
+<p>其他建议</p>
+<p>利用Dropzone还有很多可利用的技巧，例如增加一个ImageOptim应用来压缩图片，然后再进行上传。</p>
+<p>对于临时图片，可以直接上传到Imgur获得链接。</p>
+<p>原文地址：<a href="http://yansu.org/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html" target="_blank" rel="external">http://yansu.org/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html</a></p>
+<p>参考文档：<a href="http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html" target="_blank" rel="external">http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html</a></p>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/UI/使用Dropzone和七牛云存储来优化博客图床/" data-id="cip68gukj002e10bmvyal8ui9" class="article-share-link" data-share="baidu" data-title="使用Dropzone和七牛云存储来优化博客图床">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/UI/使用AFNetworking-POST数据的时候返回200错误的解决办法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          使用AFNetworking POST数据的时候返回200错误的解决办法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/UI/使用Xcode-Storyboard设置按钮圆角方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">使用Xcode Storyboard设置按钮圆角方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

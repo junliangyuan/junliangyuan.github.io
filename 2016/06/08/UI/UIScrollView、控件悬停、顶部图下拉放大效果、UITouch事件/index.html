@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件标签（空格分隔）： UI
+
+[TOC]
+UIScrollView的基本属性12345678- 超出UIScrollView边框的内容会被自动隐藏- contentSize    - 设置scrollView的contentSize属性，告诉UIScrollView所有内容的尺寸，也就是告诉它滚动范围（最多能滚多远）    -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/UI/UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件标签（空格分隔）： UI
+
+[TOC]
+UIScrollView的基本属性12345678- 超出UIScrollView边框的内容会被自动隐藏- contentSize    - 设置scrollView的contentSize属性，告诉UIScrollView所有内容的尺寸，也就是告诉它滚动范围（最多能滚多远）    -">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件">
+<meta name="twitter:description" content="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件标签（空格分隔）： UI
+
+[TOC]
+UIScrollView的基本属性12345678- 超出UIScrollView边框的内容会被自动隐藏- contentSize    - 设置scrollView的contentSize属性，告诉UIScrollView所有内容的尺寸，也就是告诉它滚动范围（最多能滚多远）    -">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-UI/UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/UI/UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件"><a href="#UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件" class="headerlink" title="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件"></a>UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件</h1><p>标签（空格分隔）： UI</p>
+<hr>
+<p>[TOC]</p>
+<h2 id="UIScrollView的基本属性"><a href="#UIScrollView的基本属性" class="headerlink" title="UIScrollView的基本属性"></a>UIScrollView的基本属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 超出UIScrollView边框的内容会被自动隐藏</span><br><span class="line">- contentSize</span><br><span class="line">    - 设置scrollView的contentSize属性，告诉UIScrollView所有内容的尺寸，也就是告诉它滚动范围（最多能滚多远）</span><br><span class="line">    - UIScrollView无法滚动的可能原因</span><br><span class="line">        - 没有设置contentSize</span><br><span class="line">        - scrollEnabled = NO;</span><br><span class="line">        - 禁止了触摸事件：userInteractionEnabled = NO</span><br><span class="line">    - 如果想要禁止某个方向的滚动，那么就可以直接设置这个方向的contentSize为0</span><br></pre></td></tr></table></figure>
+<p>eg:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 禁止水平方向上滚动</span></span><br><span class="line"><span class="keyword">self</span>.scrollView.contentSize = <span class="built_in">CGSizeMake</span>(<span class="number">0</span>, <span class="number">500</span>);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>contentOffset:（偏移量）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 记录UIScrollView滚动的位置，也就是内容的左上角和scrollView自身左上角X\Y的差值</span><br><span class="line">    - 对于X\Y值，如果内容往左上方滚动，X\Y都是增加，如果内容往右下方滚动，X\Y都是减少</span><br></pre></td></tr></table></figure>
+<p>eg：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 往下移动64</span></span><br><span class="line"><span class="keyword">self</span>.scrollView.contentOffset = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">-64</span>);</span><br></pre></td></tr></table></figure></p>
+<p><code>OC语法细节</code>：OC不允许直接修改结构体对象的属性成员变量</p>
+<ul>
+<li>contentInset:内边距</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- 这个属性能够在UIScrollView的四周增加额外的滚动区域，一般用来避免scrollView的内容被其他控件挡住（比如不被导航条挡住）</span><br><span class="line">```   </span><br><span class="line">eg：</span><br><span class="line">```objc</span><br><span class="line">// 顶部多出64的内边距</span><br><span class="line">self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);</span><br></pre></td></tr></table></figure>
+<h2 id="UIScrollView的其他属性"><a href="#UIScrollView的其他属性" class="headerlink" title="UIScrollView的其他属性"></a>UIScrollView的其他属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- BOOL bounces</span><br><span class="line">    - 设置UIScrollView是否需要弹簧效果</span><br><span class="line">- BOOL scrollEnabled</span><br><span class="line">    - 设置UIScrollView是否能滚动</span><br><span class="line">- BOOL showHorizontalScrollIndicator</span><br><span class="line">    - 是否显示水平滚动条</span><br><span class="line">- BOOL showsVerticalScrollIndicator</span><br><span class="line">    - 是否显示垂直滚动条 </span><br><span class="line">- BOOL pagingEnabled</span><br><span class="line">    - 是否分页</span><br></pre></td></tr></table></figure>
+<p><code>注意</code></p>
+<ul>
+<li>iOS7以后，导航控制器会为其中的scrollView的顶部自动添加64的内边距，如果想去掉，可以通过下列属性去掉</li>
+<li>tabBarController为间隔区域的bottom添加49</li>
+<li>取消自动添加额外滚动区域<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="UIScrollView的代理方法"><a href="#UIScrollView的代理方法" class="headerlink" title="UIScrollView的代理方法"></a>UIScrollView的代理方法</h2><ul>
+<li>使用方法<ul>
+<li>首先准守<uiscrollviewdelegate>协议</uiscrollviewdelegate></li>
+<li>设置代理</li>
+<li>实现代理方法</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>如果其他类（A类）成为该类中UIScrollView的代理的话，需要将 A类设成Strong，然后它成为当前类中scrollView的代理</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>常用代理方法为</li>
+</ul>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  滚动的时候调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  即将开始拖拽的时候调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewWillBeginDragging:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  结束拖拽的时候调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView willDecelerate:(<span class="built_in">BOOL</span>)decelerate</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  （减速完毕）停止滚动的时候调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>scrollView实现内容缩放</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最大缩放比例</span></span><br><span class="line"><span class="keyword">self</span>.scrollView.maximumZoomScale = <span class="number">2.0</span>;</span><br><span class="line"><span class="comment">// 最小缩放比例</span></span><br><span class="line"><span class="keyword">self</span>.scrollView.minimumZoomScale = <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同时实现代理方法</span></span><br><span class="line"><span class="comment">// 返回要缩放的内容控件，注意，该内容控件必须是scrollView的子控件</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)viewForZoomingInScrollView:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.imageView;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方式是内容缩放的时候调用，通过在该方法中调节内容控件的frame可以使缩放的时候内容控件始终处于scrollView的正中间</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidZoom:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将scrollView中的所有子控件都执行removeFromSuperview方法</span></span><br><span class="line">[scrollView.subviews makeObjectsPerformSelector:<span class="keyword">@selector</span>(removeFromSuperview)];</span><br></pre></td></tr></table></figure>
+<h3 id="ScrollView内部子控件添加约束的注意点"><a href="#ScrollView内部子控件添加约束的注意点" class="headerlink" title="ScrollView内部子控件添加约束的注意点"></a>ScrollView内部子控件添加约束的注意点</h3><ul>
+<li><p>子控件的尺寸<code>不能通过UIScrollView</code>来计算，可以考虑通过以下方式计算</p>
+<ul>
+<li>可以设置尺寸为<code>固定值</code></li>
+<li>可以相对于<code>UIScrollView以外的其他控件</code>来计算尺寸</li>
+</ul>
+</li>
+<li><p>UIScrollView的<code>frame</code>应该通过子控件以外的其他控件来计算</p>
+</li>
+<li>UIScrollView的<code>contentSize</code>的尺寸是通过子控件来计算的<ul>
+<li>根据<code>子控件的尺寸</code>以及<code>子控件与UIScrollView之间的间距</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="ScrollView的一些特效效果"><a href="#ScrollView的一些特效效果" class="headerlink" title="ScrollView的一些特效效果"></a>ScrollView的一些特效效果</h3><h4 id="控件悬停效果"><a href="#控件悬停效果" class="headerlink" title="控件悬停效果"></a>控件<code>悬停</code>效果</h4><blockquote>
+<p>当scrollView往上拖拽到某一个位置的时候，控件(testView)悬停到某一个位置，当scrollView往下拉的时候，该控件(testView)又随着scrollView一起移动</p>
+</blockquote>
+<p>实现思路：</p>
+<p>当往上拖拽到一定位置的时候(通过计算偏移量来判断)，让该控件(testView)添加到self.view上，并设置该控件(testView)的frame固定到该位置，当scrollView再次往回拖拽到该位置的时候，再让该控件(testView)再添加到scrollView上，成为scrollView的子控件</p>
+<h4 id="顶部图片下拉放大效果"><a href="#顶部图片下拉放大效果" class="headerlink" title="顶部图片下拉放大效果"></a>顶部图片下拉放大效果</h4><blockquote>
+<p>当scrollView往下拖拽的时候，让顶部的imageView按比例放大</p>
+</blockquote>
+<p>实现思路：</p>
+<p>当scrollView往下拖拽的时候，通过偏移量来修改顶部imageView的transform(缩放的transform)。</p>
+<p>eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageH = <span class="keyword">self</span>.imageView.frame.size.height;</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetY = scrollView.contentOffset.y;</span><br><span class="line">    <span class="comment">// 该判断是实现scrollView内部的子控件悬停效果</span></span><br><span class="line">    <span class="keyword">if</span> (offsetY &gt;= imageH) &#123;</span><br><span class="line">        <span class="comment">// 将红色控件添加到控制器的view中，设置Y值为0</span></span><br><span class="line">        <span class="built_in">CGRect</span> redF = <span class="keyword">self</span>.redView.frame;</span><br><span class="line">        redF.origin.y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">self</span>.redView.frame = redF;</span><br><span class="line">        [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.redView];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// 将红色控件添加到scrollView中，设置Y值为图片的高度</span></span><br><span class="line">        <span class="built_in">CGRect</span> redF = <span class="keyword">self</span>.redView.frame;</span><br><span class="line">        redF.origin.y = <span class="number">140</span>;</span><br><span class="line">        <span class="keyword">self</span>.redView.frame = redF;</span><br><span class="line">        [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.redView];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 实现下拉放大顶部图片效果</span></span><br><span class="line">    <span class="built_in">CGFloat</span> scale = <span class="number">1</span> - (offsetY / <span class="number">70</span>);</span><br><span class="line">    scale = (scale &gt;= <span class="number">1</span>) ? scale : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">self</span>.imageView.transform = <span class="built_in">CGAffineTransformMakeScale</span>(scale, scale);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分页指示器UIPageControl"><a href="#分页指示器UIPageControl" class="headerlink" title="分页指示器UIPageControl"></a>分页指示器UIPageControl</h2><ul>
+<li>UIPageControl<ul>
+<li>颜色指示器<ul>
+<li>tintColor: 其他页面的指示颜色</li>
+<li>currentPageIndicatorTintColor:当前页颜色</li>
+<li>numberOfPages:总共有多少页</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>注意</code> 一定不要将UIPageControl放到UIScrollView里，这样的话UIScrollView的内容拖动的时候容易把UIPageControl拖走</p>
+<ul>
+<li>pageControl.hidesForSinglePage = YES;<ul>
+<li>当只有一页时自动隐藏pageControl</li>
+</ul>
+</li>
+</ul>
+<h2 id="关于UIScrollView不能响应UITouch事件的解决办法"><a href="#关于UIScrollView不能响应UITouch事件的解决办法" class="headerlink" title="关于UIScrollView不能响应UITouch事件的解决办法"></a>关于UIScrollView不能响应UITouch事件的解决办法</h2><p>原因是：UIView的touch事件被UIScrollView捕获了。</p>
+<p>解决办法：让UIScrollView将事件传递过去。于是最简单的解决办法就是加一个UIScrollView的category。这样每个用到UIScrollView的地方只要导入这个category就可以直接响应相关的touch事件了。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"UIScrollView+UITouch.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIScrollView</span> (<span class="title">UITouch</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">  [[<span class="keyword">self</span> nextResponder] touchesBegan:touches withEvent:event];</span><br><span class="line">  [<span class="keyword">super</span> touchesBegan:touches withEvent:event];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">  [[<span class="keyword">self</span> nextResponder] touchesMoved:touches withEvent:event];</span><br><span class="line">  [<span class="keyword">super</span> touchesMoved:touches withEvent:event];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line">  [[<span class="keyword">self</span> nextResponder] touchesEnded:touches withEvent:event];</span><br><span class="line">  [<span class="keyword">super</span> touchesEnded:touches withEvent:event];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/UI/UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件/" data-id="cip68guk7001z10bmkb6irpek" class="article-share-link" data-share="baidu" data-title="UIScrollView、控件悬停、顶部图下拉放大效果、UITouch事件">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/UI/IOS中生成二维码、扫描二维码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          IOS中生成二维码、扫描二维码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/UI/UIView的常见属性和方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">UIView的常见属性和方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

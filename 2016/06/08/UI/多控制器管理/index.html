@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>多控制器管理 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多控制器管理、UINavigationController、UITabBarController标签（空格分隔）： IOS
+
+[TOC]
+UINavigationControllerUINavigationController的使用步骤
+1 初始化UINavigationController
+2 设置UIWindow的rootViewController为UINavigationControlle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多控制器管理">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/UI/多控制器管理/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="多控制器管理、UINavigationController、UITabBarController标签（空格分隔）： IOS
+
+[TOC]
+UINavigationControllerUINavigationController的使用步骤
+1 初始化UINavigationController
+2 设置UIWindow的rootViewController为UINavigationControlle">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-c0ee7f5a2f20624c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-4417637d5502aa3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-e25c75774adcf5fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-5d9fa6789fd717a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-1f953c876c95d407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-37dd396596e5236a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多控制器管理">
+<meta name="twitter:description" content="多控制器管理、UINavigationController、UITabBarController标签（空格分隔）： IOS
+
+[TOC]
+UINavigationControllerUINavigationController的使用步骤
+1 初始化UINavigationController
+2 设置UIWindow的rootViewController为UINavigationControlle">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-c0ee7f5a2f20624c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-UI/多控制器管理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/UI/多控制器管理/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      多控制器管理
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="多控制器管理、UINavigationController、UITabBarController"><a href="#多控制器管理、UINavigationController、UITabBarController" class="headerlink" title="多控制器管理、UINavigationController、UITabBarController"></a>多控制器管理、UINavigationController、UITabBarController</h1><p>标签（空格分隔）： IOS</p>
+<hr>
+<p>[TOC]</p>
+<h2 id="UINavigationController"><a href="#UINavigationController" class="headerlink" title="UINavigationController"></a>UINavigationController</h2><h3 id="UINavigationController的使用步骤"><a href="#UINavigationController的使用步骤" class="headerlink" title="UINavigationController的使用步骤"></a>UINavigationController的使用步骤</h3><ul>
+<li>1 初始化UINavigationController</li>
+<li>2 设置UIWindow的rootViewController为UINavigationController</li>
+<li>3 根据情况，通过push方式添加对应个数的子控制器</li>
+</ul>
+<h4 id="控制器入栈"><a href="#控制器入栈" class="headerlink" title="控制器入栈"></a>控制器入栈</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建导航控制器</span></span><br><span class="line"><span class="built_in">UINavigationController</span> *nav = [[<span class="built_in">UINavigationController</span> alloc] init];</span><br><span class="line"><span class="comment">// 将控制器testViewController添加到导航控制器nav中</span></span><br><span class="line">[nav pushViewController:testViewController animated:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只要当前控制器是导航控制器的子控制器，就可以通过该属性直接获取到当前控制器所在的导航控制器</span></span><br><span class="line"><span class="keyword">self</span>.navigationController</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化的时候创建添加子控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UINavigationController</span> *nav = [[<span class="built_in">UINavigationController</span> alloc] initWithRootViewController:childViewController];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取导航控制器的栈顶控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nav.topViewController</span><br></pre></td></tr></table></figure>
+<h4 id="控制器出栈"><a href="#控制器出栈" class="headerlink" title="控制器出栈"></a>控制器出栈</h4><ul>
+<li>弹出顶部控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nav popViewControllerAnimated:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>跳转到跟控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nav popToRootViewControllerAnimated:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="其他导航条的属性"><a href="#其他导航条的属性" class="headerlink" title="其他导航条的属性"></a>其他导航条的属性</h4><ul>
+<li>一个导航控制器只有一个导航条，也就是说所有的子控制器共用一个导航条</li>
+<li>导航条上显示的内容和栈顶控制器有关，所以，导航条上显示什么内容由栈顶控制器控制</li>
+</ul>
+<p><code>注意</code>导航条左边<code>返回</code>按钮的文字是由上一个控制器决定的</p>
+<p><code>导航条的基本设置</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 控制当前控制器对应的导航条显示的内容</span></span><br><span class="line"><span class="keyword">self</span>.navigationItem.title = <span class="string">@"标题"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给导航条添加一个自定义视图</span></span><br><span class="line"><span class="keyword">self</span>.navigationItem.titleView = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导航条的左边添加按钮</span></span><br><span class="line"><span class="keyword">self</span>.navigationItem.leftBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"左边按钮"</span> style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导航条的右边添加按钮</span></span><br><span class="line"><span class="keyword">self</span>.navigationItem.rightBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"右边按钮"</span> style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置返回按钮的显示</span></span><br><span class="line"><span class="keyword">self</span>.navigationItem.backBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"返回"</span> style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="literal">nil</span> action:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="导航控制器中控制器的结构"><a href="#导航控制器中控制器的结构" class="headerlink" title="导航控制器中控制器的结构"></a>导航控制器中控制器的结构</h4><ul>
+<li><code>IOS7.0以后</code>:导航控制器中子控制器的view是全屏化的。也就是从状态栏顶部到控制器底部</li>
+<li><code>IOS7.0之前</code>:导航控制器中子控制器的view不是全屏化的。它的view是从导航条下面开始的(也就是Y=64)。</li>
+</ul>
+<h3 id="导航控制器管理子控制器的原理"><a href="#导航控制器管理子控制器的原理" class="headerlink" title="导航控制器管理子控制器的原理"></a>导航控制器管理子控制器的原理</h3><ul>
+<li>导航控制器是通过栈的形式来管理它的子控制器（也就是先进后出）</li>
+<li>导航条的高度是44（最上面的20不属于导航条，它属于系统的状态栏）</li>
+<li>导航控制器的高度是从状态栏的最顶部开始的，导航控制器和状态栏覆盖在导航控制器上面。</li>
+<li>当将新的控制器添加到导航控制器中的时候，新的控制器的view会添加到当前控制器中。而旧的控制器的view会被暂时放到缓存池中。但不会被销毁</li>
+<li>当将控制器移除的时候，被移除的控制会被销毁。</li>
+</ul>
+<h3 id="Segue"><a href="#Segue" class="headerlink" title="Segue"></a>Segue</h3><h4 id="什么是Segue"><a href="#什么是Segue" class="headerlink" title="什么是Segue"></a>什么是Segue</h4><p>storyBoard上每一根用来界面跳转的线，都是一个UIStoryBoardSegue对象(简称Segue)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-c0ee7f5a2f20624c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Segue.png"></p>
+<h4 id="Segue的属性"><a href="#Segue的属性" class="headerlink" title="Segue的属性"></a>Segue的属性</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 唯一标识 */</span></span><br><span class="line"><span class="keyword">@property</span> (nullable, <span class="keyword">nonatomic</span>, <span class="keyword">copy</span>, <span class="keyword">readonly</span>) <span class="built_in">NSString</span> *identifier;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 来源控制器 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) __kindof <span class="built_in">UIViewController</span> *sourceViewController;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 目标控制器 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) __kindof <span class="built_in">UIViewController</span> *destinationViewController;</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-4417637d5502aa3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="identifier.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-e25c75774adcf5fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="从来源控制器跳转到目标控制器.png"></p>
+<h4 id="Segue的类型"><a href="#Segue的类型" class="headerlink" title="Segue的类型"></a>Segue的类型</h4><h5 id="自动类型"><a href="#自动类型" class="headerlink" title="自动类型"></a>自动类型</h5><ul>
+<li>按着Control键，直接从控件拖线到目标控制器</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-5d9fa6789fd717a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自动类型的Segue.png"></p>
+<ul>
+<li>点击某个控件后(比如按钮)，自动执行Segue，自动完成界面跳转</li>
+<li>一般用于点击某个控件后，不需要做任何判断，一定要跳转到下一个界面。建议使用“自动类型的Segue”</li>
+</ul>
+<h5 id="手动类型"><a href="#手动类型" class="headerlink" title="手动类型"></a>手动类型</h5><ul>
+<li>需要通过写代码手动执行Segue，才能完成界面跳转</li>
+<li>一般用于点击某个控件后，需要做一些判断才能跳转的情况下，建议使用“手动类型的Segue”</li>
+<li>手动类型的Segue需要设置一个标识</li>
+<li>按住Control键，从来源控制器拖线到目标控制器</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-1f953c876c95d407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="手动类型的Segue设置方法.png"></p>
+<ul>
+<li>在恰当的时刻，使用perform方法执行对应的Segue</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Segue必须由来源控制器来执行，也就是说，这个perform方法必须有来源控制器来调用</span></span><br><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="Segue跳转传值的内部原理"><a href="#Segue跳转传值的内部原理" class="headerlink" title="Segue跳转传值的内部原理"></a>Segue跳转传值的内部原理</h3><p>eg：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p><code>performSegueWithIdentifier: sender:</code>方法的完整执行过程</p>
+<ul>
+<li>这个self是指来源控制器 </li>
+<li>根据identifier去storyBoard中找到对应的线，新建UIStoryboardSegue对象<ul>
+<li>设置Segue对象的sourceViewController(来源控制器)</li>
+<li>新建并设置Segue对象的destinationViewController(目标控制器)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在调用Segue跳转方法(执行Segue的<code>- (void)perform</code>方法)之前会执行<code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</code>方法。在该方法中会将<code>performSegueWithIdentifier: sender:</code>方法中创建好的Segue传递进来。</p>
+<ul>
+<li>在这个Segue中，可以获取Segue的<code>sourceViewController</code>(来源控制器)和<code>destinationViewController</code>(目标控制器)和Segue的<code>identifier</code> ，然后再执行跳转，可以在这里进行数据的传递。</li>
+</ul>
+</li>
+<li><p>其中Segue的<code>-(void)perform</code>方法内部相当于以下实现</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)prepareForSegue:(<span class="built_in">UIStoryboardSegue</span> *)segue sender:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取来源控制器</span></span><br><span class="line">    <span class="built_in">UIViewController</span> *sourceVc = segue.sourceViewController;</span><br><span class="line">    <span class="comment">// 拿到来源控制器的导航控制器</span></span><br><span class="line">    <span class="built_in">UINavigationController</span> *nav = sourceVc.navigationController;</span><br><span class="line">    <span class="comment">// 从来源控制器跳转到目标控制器</span></span><br><span class="line">    [nav pushViewController:segue.destinationViewController animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数据的传递"><a href="#数据的传递" class="headerlink" title="数据的传递"></a>数据的传递</h2><h3 id="数据的顺传"><a href="#数据的顺传" class="headerlink" title="数据的顺传"></a>数据的顺传</h3><ul>
+<li>将来源控制器中的数据传递到目标控制器<ul>
+<li>通过执行<code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</code>方法，将来源控制器的数据传递到目标控制器</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据的逆传"><a href="#数据的逆传" class="headerlink" title="数据的逆传"></a>数据的逆传</h3><p>数据的逆传可以使用<code>代理</code>或<code>通知</code>两种方式</p>
+<h2 id="控制器的声明周期"><a href="#控制器的声明周期" class="headerlink" title="控制器的声明周期"></a>控制器的声明周期</h2><ul>
+<li>1 viewDidLoad</li>
+<li>2 viewWillAppear:</li>
+<li>3 viewDidAppear:</li>
+<li>4 viewWillDisappear:</li>
+<li>5 viewDidDisappear:</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 当控制器的view加载完毕就调用</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制器即将显示的时候调用</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制器完全显示的时候调用</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制器即将消失的时候调用</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制器完全消失的时候调用</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对于从一个控制器跳转到另一个控制器时的顺序</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 viewWillDisappear:</span><br><span class="line">2 viewWillAppear:</span><br><span class="line">3 viewDidDisappear:</span><br><span class="line">4 viewDidAppear:</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-37dd396596e5236a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制器的声明周期.png"></p>
+<h2 id="UINavigationController的常见设置"><a href="#UINavigationController的常见设置" class="headerlink" title="UINavigationController的常见设置"></a>UINavigationController的常见设置</h2><h3 id="UINavigationBar的设置"><a href="#UINavigationBar的设置" class="headerlink" title="UINavigationBar的设置"></a>UINavigationBar的设置</h3><ul>
+<li>导航条的设置</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 该方法只在该类进入时调用一次</span></span><br><span class="line">+ (<span class="keyword">void</span>)initialize</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UINavigationBar</span> *navBar = [<span class="built_in">UINavigationBar</span> appearance];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置导航条的标题颜色</span></span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *attrs = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    attrs[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">    attrs[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [navBar setTitleTextAttributes:attrs];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置UIBarButtonItem的主题</span></span><br><span class="line">    <span class="built_in">UIBarButtonItem</span> *barItem = [<span class="built_in">UIBarButtonItem</span> appearance];</span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *barItemAttrs = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    barItemAttrs[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">    barItemAttrs[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [barItem setTitleTextAttributes:barItemAttrs forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>拦截所有通过push进来的控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  拦截所有的Push方法</span><br><span class="line"> *</span><br><span class="line"> *  @param viewController 目标控制器</span><br><span class="line"> *  @param animated       是否动画</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 当通过UINavigationController来Push到另一个控制器的时候，隐藏底部的tabBar</span></span><br><span class="line">    viewController.hidesBottomBarWhenPushed = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/UI/多控制器管理/" data-id="cip68gukq002l10bm1sowamnc" class="article-share-link" data-share="baidu" data-title="多控制器管理">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/UI/图片的拉伸处理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          图片的拉伸处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/UI/定时器、plist、懒加载、模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">定时器、plist、懒加载、模型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

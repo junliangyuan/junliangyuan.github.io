@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>通知中心(NSNotificationCenter) | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC]
+概念
+每个运行中的application都有一个NSNotificationCenter的成员变量,它的功能就类似广播台
+需要监听的对象先去通知中心注册成为观察者
+消息发送者(poster)给center发送notifications
+center再将消息全部转发给所有注册过的观察者
+消息发送者和消息接受者两者可以互相一无所知，完全解耦
+这种消息通知机制可以应用于任意时间和任何对象，观">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通知中心(NSNotificationCenter)">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/UI/通知中心(NSNotificationCenter)/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="[TOC]
+概念
+每个运行中的application都有一个NSNotificationCenter的成员变量,它的功能就类似广播台
+需要监听的对象先去通知中心注册成为观察者
+消息发送者(poster)给center发送notifications
+center再将消息全部转发给所有注册过的观察者
+消息发送者和消息接受者两者可以互相一无所知，完全解耦
+这种消息通知机制可以应用于任意时间和任何对象，观">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通知中心(NSNotificationCenter)">
+<meta name="twitter:description" content="[TOC]
+概念
+每个运行中的application都有一个NSNotificationCenter的成员变量,它的功能就类似广播台
+需要监听的对象先去通知中心注册成为观察者
+消息发送者(poster)给center发送notifications
+center再将消息全部转发给所有注册过的观察者
+消息发送者和消息接受者两者可以互相一无所知，完全解耦
+这种消息通知机制可以应用于任意时间和任何对象，观">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-UI/通知中心(NSNotificationCenter)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/UI/通知中心(NSNotificationCenter)/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      通知中心(NSNotificationCenter)
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <p>[TOC]</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>每个运行中的application都有一个NSNotificationCenter的成员变量,它的功能就类似广播台</li>
+<li>需要监听的对象先去通知中心注册成为观察者</li>
+<li>消息发送者(poster)给center发送notifications</li>
+<li>center再将消息全部转发给所有注册过的观察者<ul>
+<li>消息发送者和消息接受者两者可以互相一无所知，完全解耦</li>
+<li>这种消息通知机制可以应用于任意时间和任何对象，观察者可以有多个，所以消息具有广播的性质，只是需要注意的是，观察者向消息中心注册以后，在不需要接受消息时需要向消息中心注销，这种消息广播机制是典型的“Observer”模式。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用消息机制的步骤"><a href="#使用消息机制的步骤" class="headerlink" title="使用消息机制的步骤"></a>使用消息机制的步骤</h3><ul>
+<li>1.通知发布者发布通知</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// self发出了一个名为name的通知，通知的具体内容参数为userInfo</span></span><br><span class="line"><span class="built_in">NSNotification</span> *note = [<span class="built_in">NSNotification</span> notificationWithName:<span class="string">@"valueUpdate"</span> object:notificationPoster userInfo:@&#123;</span><br><span class="line"><span class="string">@"content"</span> : <span class="string">@"详细内容"</span>,                    <span class="string">@"title"</span> : <span class="string">@"补充信息"</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发出通知</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotification:note];</span><br></pre></td></tr></table></figure>
+<p>// 参数：object：通知的发出者(某个对象)  name：通知名称  userInfo：通知的具体内容</p>
+<blockquote>
+<ul>
+<li>valueUpdate： 消息通知的名字</li>
+<li>notificationPoster： 消息发送者</li>
+<li>userInfo:所需要传递的信息</li>
+</ul>
+</blockquote>
+<ul>
+<li><ol>
+<li>观察者注册消息通知</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// self接收了名为“出大事了”的通知后执行receiveNotification:方法。object是指通知发出者，如果填nil，表示任何对象发出的通知都去接收</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(receiveNotification:) name:<span class="string">@"valueUpdate"</span> object:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>self： 观察者</li>
+<li>receiveNotification: 接收到消息后执行的方法</li>
+<li>valueUpdate： 通知的名字</li>
+<li>object： 通知发出者 ； 表示接收哪个发送者的通知，如果第四个参数为nil,接收所有发送者的通知</li>
+</ul>
+</blockquote>
+<ul>
+<li>3.观察者处理消息</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)receiveNotification:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>NSNotification 接受到的消息信息，主要含：</li>
+<li>Name: 消息名称 Notification_GetUserProfileSuccess</li>
+<li>object: 消息发送者 userProfile</li>
+<li>userInfo: 消息传递的数据信息</li>
+</ul>
+</blockquote>
+<ul>
+<li>4.观察者注销，移除观察者<br>方式一</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 移除所有监听的通知</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方式二</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 移除object1对象发出的名为“通知1”的通知</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span> name:<span class="string">@"通知1"</span> object:object1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常见系统通知"><a href="#常见系统通知" class="headerlink" title="常见系统通知"></a>常见系统通知</h2><ul>
+<li>UIDevice通知</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设备旋转</span></span><br><span class="line"><span class="built_in">UIDeviceOrientationDidChangeNotification</span></span><br><span class="line"><span class="comment">// 电池状态改变</span></span><br><span class="line"><span class="built_in">UIDeviceBatteryLevelDidChangeNotification</span></span><br><span class="line"><span class="comment">// 电池电量改变</span></span><br><span class="line"><span class="built_in">UIDeviceBatteryLevelDidChangeNotification</span></span><br><span class="line"><span class="comment">// 近距离传感器(比如设备贴近了使用者的脸部)</span></span><br><span class="line"><span class="built_in">UIDeviceProximityStateDidChangeNotification</span></span><br></pre></td></tr></table></figure>
+<h2 id="eg：键盘弹出与退出处理"><a href="#eg：键盘弹出与退出处理" class="headerlink" title="eg：键盘弹出与退出处理"></a>eg：键盘弹出与退出处理</h2><ul>
+<li>监听通知</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听键盘弹出通知</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardWillShow:) name:<span class="built_in">UIKeyboardWillShowNotification</span> object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听键盘退出通知</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardWillHide:) name:<span class="built_in">UIKeyboardWillHideNotification</span> object:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监听键盘弹出</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  键盘即将显示时</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)keyboardWillShow:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 取出键盘最终的frame</span></span><br><span class="line">    <span class="built_in">CGRect</span> rect = [note.userInfo[<span class="built_in">UIKeyboardFrameEndUserInfoKey</span>] <span class="built_in">CGRectValue</span>];</span><br><span class="line">    <span class="comment">// 取出键盘弹出需要花费的时间</span></span><br><span class="line">    <span class="keyword">double</span> duration = [note.userInfo[<span class="built_in">UIKeyboardAnimationDurationUserInfoKey</span>] doubleValue];</span><br><span class="line">    <span class="comment">// 修改约束</span></span><br><span class="line">    <span class="keyword">self</span>.bottomSpaceing.constant = rect.size.height;</span><br><span class="line">    <span class="comment">// 执行动画</span></span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:duration animations:^&#123;</span><br><span class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监听键盘退出通知</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  监听键盘退出通知事件</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)keyboardWillHide:(<span class="built_in">NSNotification</span> *)note</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 取出键盘弹出时间</span></span><br><span class="line">    <span class="keyword">double</span> duration = [note.userInfo[<span class="built_in">UIKeyboardAnimationDurationUserInfoKey</span>] doubleValue];</span><br><span class="line">    <span class="comment">// 修改约束</span></span><br><span class="line">    <span class="keyword">self</span>.bottomSpacing.constant = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 执行动画</span></span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:duration animations:^&#123;</span><br><span class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>退出键盘</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一：具体的某个textField执行退出键盘操作</span></span><br><span class="line"><span class="comment">//[textField resignFirstResponder];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二：所有的textField都会执行</span></span><br><span class="line">[<span class="keyword">self</span>.view endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/UI/通知中心(NSNotificationCenter)/" data-id="cip68gul5003010bmi1ahj9ag" class="article-share-link" data-share="baidu" data-title="通知中心(NSNotificationCenter)">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/UI/本地推送通知、远程推送通知、激光推送/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          本地推送通知、远程推送通知、激光推送
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/常用封装/AFNetworking的封装/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">AFNetworking的封装</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

@@ -4,17 +4,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/6 | 袁俊亮技术博客</title>
+  <title>iOS9.3 Could not find Developer Disk Image 真机调试错误解决办法 | 袁俊亮技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="袁俊亮技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+  <meta name="description" content="昨天手机系统升级9.3，到了公司真机测试的时候发现Xcode（7.2.1）报错：Could not find Developer Disk Image , 这是因为我的Xcode7.2中还没有支持9.3的Disk Image。解决办法：
+1下载该Disk Image，放到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.pl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS9.3 Could not find Developer Disk Image 真机调试错误解决办法">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/IOS零碎知识点/iOS9-3-Could-not-find-Developer-Disk-Image-真机调试错误解决办法/index.html">
 <meta property="og:site_name" content="袁俊亮技术博客">
-<meta property="og:description">
+<meta property="og:description" content="昨天手机系统升级9.3，到了公司真机测试的时候发现Xcode（7.2.1）报错：Could not find Developer Disk Image , 这是因为我的Xcode7.2中还没有支持9.3的Disk Image。解决办法：
+1下载该Disk Image，放到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.pl">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="袁俊亮技术博客">
-<meta name="twitter:description">
+<meta name="twitter:title" content="iOS9.3 Could not find Developer Disk Image 真机调试错误解决办法">
+<meta name="twitter:description" content="昨天手机系统升级9.3，到了公司真机测试的时候发现Xcode（7.2.1）报错：Could not find Developer Disk Image , 这是因为我的Xcode7.2中还没有支持9.3的Disk Image。解决办法：
+1下载该Disk Image，放到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.pl">
   
     <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
   
@@ -71,210 +75,74 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
+      <section id="main"><article id="post-IOS零碎知识点/iOS9-3-Could-not-find-Developer-Disk-Image-真机调试错误解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/IOS零碎知识点/iOS9-3-Could-not-find-Developer-Disk-Image-真机调试错误解决办法/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+    <h1 class="article-title" itemprop="name">
+      iOS9.3 Could not find Developer Disk Image 真机调试错误解决办法
     </h1>
   
 
-    </header>
-  </div>
-</article>
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
   
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
-    </h1>
-  
+      <p>昨天手机系统升级9.3，到了公司真机测试的时候发现Xcode（7.2.1）报错：Could not find Developer Disk Image , 这是因为我的Xcode7.2中还没有支持9.3的Disk Image。<br>解决办法：</p>
+<p>1下载该Disk Image，放到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport文件夹下，重启Xcode即可解决此类问题。<br>2、将Xcode更新到最新版本（7.3）<br>Disk Image 9.3 下载地址：<a href="http://yun.baidu.com/s/1o6Vdzp4" target="_blank" rel="external">http://yun.baidu.com/s/1o6Vdzp4</a></p>
 
-    </header>
-  </div>
-</article>
+    
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
+</div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
+        <a data-url="http://yoursite.com/2016/06/08/IOS零碎知识点/iOS9-3-Could-not-find-Developer-Disk-Image-真机调试错误解决办法/" data-id="cip68gujb001910bme9batgce" class="article-share-link" data-share="baidu" data-title="iOS9.3 Could not find Developer Disk Image 真机调试错误解决办法">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中数据持久化方式/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/">Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中的正则/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中的正则/">IOS中的正则</a>
-    </h1>
+    <a href="/2016/06/08/IOS零碎知识点/iOS-在-Xcode-中重命名项目名称/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          iOS 在 Xcode 中重命名项目名称
+        
+      </div>
+    </a>
   
+  
+    <a href="/2016/06/08/IOS零碎知识点/动态获取UILabel的高度和宽度/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">动态获取UILabel的高度和宽度</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/Iphone屏幕尺寸/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/Iphone屏幕尺寸/">Iphone屏幕尺寸</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/全局常量的定义、const和指针的区别/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/全局常量的定义、const和指针的区别/">全局常量的定义、const和指针的区别</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/SVN项目管理/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/SVN项目管理/">SVN项目管理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
       
       <aside id="sidebar">

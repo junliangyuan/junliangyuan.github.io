@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>IOS从URL中获得文件名 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="IOS从URL中获得文件名标签（空格分隔）： IOS零碎知识点
+
+
+从路径中获得完整的文件名（带后缀）
+
+1[filePath lastPathComponent];
+
+获得文件名（不带后缀）
+
+1[exestr stringByDeletingPathExtension];
+
+获得文件的扩展类型（不带’.’）
+
+1[filePath pathExtension];
+注 pathExtension">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS从URL中获得文件名">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/IOS零碎知识点/IOS从URL中获得文件名/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="IOS从URL中获得文件名标签（空格分隔）： IOS零碎知识点
+
+
+从路径中获得完整的文件名（带后缀）
+
+1[filePath lastPathComponent];
+
+获得文件名（不带后缀）
+
+1[exestr stringByDeletingPathExtension];
+
+获得文件的扩展类型（不带’.’）
+
+1[filePath pathExtension];
+注 pathExtension">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOS从URL中获得文件名">
+<meta name="twitter:description" content="IOS从URL中获得文件名标签（空格分隔）： IOS零碎知识点
+
+
+从路径中获得完整的文件名（带后缀）
+
+1[filePath lastPathComponent];
+
+获得文件名（不带后缀）
+
+1[exestr stringByDeletingPathExtension];
+
+获得文件的扩展类型（不带’.’）
+
+1[filePath pathExtension];
+注 pathExtension">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-IOS零碎知识点/IOS从URL中获得文件名" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/IOS零碎知识点/IOS从URL中获得文件名/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IOS从URL中获得文件名
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="IOS从URL中获得文件名"><a href="#IOS从URL中获得文件名" class="headerlink" title="IOS从URL中获得文件名"></a>IOS从URL中获得文件名</h1><p>标签（空格分隔）： IOS零碎知识点</p>
+<hr>
+<ul>
+<li>从路径中获得完整的文件名（带后缀）</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[filePath lastPathComponent];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获得文件名（不带后缀）</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[exestr stringByDeletingPathExtension];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获得文件的扩展类型（不带’.’）</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[filePath pathExtension];</span><br></pre></td></tr></table></figure>
+<p><code>注</code> pathExtension这个字符串的值将是“txt”。句点将被去掉了。如果没有句点指明扩展名，将返回一个空串。如果文件不存在，也将返回空串</p>
+<h2 id="iPhone中，在网络中的数据流中提取链接中的文件名称时，有很多方法，这里总结一些。"><a href="#iPhone中，在网络中的数据流中提取链接中的文件名称时，有很多方法，这里总结一些。" class="headerlink" title="iPhone中，在网络中的数据流中提取链接中的文件名称时，有很多方法，这里总结一些。"></a>iPhone中，在网络中的数据流中提取链接中的文件名称时，有很多方法，这里总结一些。</h2><ul>
+<li>方法一：最直接。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * urlString = <span class="string">@"http://www.baidu.com/img/baidu_logo_fqj_10.gif"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *fileName = [urlString lastPathComponent];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,fileName);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法二：根据字符或者时字符串分割</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NSString *link = @"http://www.baidu.com/img/baidu_logo_fqj_10.gif”;</span><br><span class="line">NSString *filename = [[NSString alloc] init];</span><br><span class="line">NSArray *SeparatedArray = [[NSArray alloc]init];</span><br><span class="line">SeparatedArray =[link componentsSeparatedByString:@"/"];</span><br><span class="line">filename = [SeparatedArray lastObject];</span><br><span class="line">NSLog(@"%@",SeparatedArray);</span><br><span class="line">NSLog(@"%@",filename);</span><br><span class="line">[filename release];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法三：将链接看成路径</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString * urlString = @"http://www.baidu.com/img/baidu_logo_fqj_10.gif”;</span><br><span class="line">NSArray *urlCom = [[NSArray alloc]initWithArray:[url pathComponents]];</span><br><span class="line">NSLog(@"%@",[urlCom lastObject]);</span><br><span class="line">[urlCom release];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法四：NSRange.它在截取二进制文件的时候十分方便</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">NSString * urlString = @"http://www.baidu.com/img/baidu_logo_fqj_10.gif”;</span><br><span class="line">NSString * fileName;</span><br><span class="line">NSRange range = [urlString rangeOfString:@"/" options:NSBackwardsSearch];</span><br><span class="line">    if (range.location != NSNotFound)</span><br><span class="line">    &#123;</span><br><span class="line">        fileName = [urlString substringFromIndex:range.location+1];</span><br><span class="line">        if([[fileName lowercaseString]hasSuffix:@".gif"])&#123;</span><br><span class="line">            NSLog(@"%@",fileName);</span><br><span class="line">        &#125;  </span><br><span class="line">        else&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>原文地址：<a href="http://blog.sina.com.cn/s/blog_677089db01018l5w.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_677089db01018l5w.html</a></p>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/IOS零碎知识点/IOS从URL中获得文件名/" data-id="cip68guj3000x10bmvda1h68m" class="article-share-link" data-share="baidu" data-title="IOS从URL中获得文件名">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/IOS/项目设置页面实现/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          项目设置页面实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/IOS零碎知识点/NSDate/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">NSDate</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

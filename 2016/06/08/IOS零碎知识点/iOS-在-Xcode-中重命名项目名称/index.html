@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS 在 Xcode 中重命名项目名称 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文章讲解一下如何在 Xcode 6.3.1 中重命名你的项目名称，包括你的应用名称。
+1、准备
+PS：不要在你现在的工程中，做下面的操作。所以我们需要准备一个新的工程取名为 RenameDemo，一会儿，我们会将其改为 NewNameDemo，好了，话不多说，开始我们的教程，创建一个工程取名 RenameDemo。
+
+取什么名无所谓，随你个人的喜好，接下来，我们重命名它吧！
+2、让 Xcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 在 Xcode 中重命名项目名称">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/IOS零碎知识点/iOS-在-Xcode-中重命名项目名称/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="本文章讲解一下如何在 Xcode 6.3.1 中重命名你的项目名称，包括你的应用名称。
+1、准备
+PS：不要在你现在的工程中，做下面的操作。所以我们需要准备一个新的工程取名为 RenameDemo，一会儿，我们会将其改为 NewNameDemo，好了，话不多说，开始我们的教程，创建一个工程取名 RenameDemo。
+
+取什么名无所谓，随你个人的喜好，接下来，我们重命名它吧！
+2、让 Xcode">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-379561bd66d0b703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-b06629eac4d0a997.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-0bf68b7e73f18c8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-3838907aa434aee8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-c4c82540f6e7e5d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-6b946ba3f3143298.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-19392c71392d2ecb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-522f6a61c3632104.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-1d57934158b3ca8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-52035d1ff6cb0868.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-329288aa14a7ce67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-5a39439dccaa9a02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-0bee20a07ca79a0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-db7f98774bd15e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-9cd15f00b6064b90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-a4f3447f1adedd6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-8224659d274a72f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 在 Xcode 中重命名项目名称">
+<meta name="twitter:description" content="本文章讲解一下如何在 Xcode 6.3.1 中重命名你的项目名称，包括你的应用名称。
+1、准备
+PS：不要在你现在的工程中，做下面的操作。所以我们需要准备一个新的工程取名为 RenameDemo，一会儿，我们会将其改为 NewNameDemo，好了，话不多说，开始我们的教程，创建一个工程取名 RenameDemo。
+
+取什么名无所谓，随你个人的喜好，接下来，我们重命名它吧！
+2、让 Xcode">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-379561bd66d0b703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-IOS零碎知识点/iOS-在-Xcode-中重命名项目名称" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/IOS零碎知识点/iOS-在-Xcode-中重命名项目名称/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS 在 Xcode 中重命名项目名称
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <p>本文章讲解一下如何在 Xcode 6.3.1 中重命名你的项目名称，包括你的应用名称。</p>
+<p>1、准备</p>
+<p>PS：不要在你现在的工程中，做下面的操作。所以我们需要准备一个新的工程取名为 RenameDemo，一会儿，我们会将其改为 NewNameDemo，好了，话不多说，开始我们的教程，创建一个工程取名 RenameDemo。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-379561bd66d0b703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-1.png"></p>
+<p>取什么名无所谓，随你个人的喜好，接下来，我们重命名它吧！</p>
+<p>2、让 Xcode 为我们做点什么</p>
+<p>Xcode 其实可以为我们做很多的东西，给我们的Project、target更改名称这个是它做的最主要的功能。</p>
+<p>打开 Xcode 的 File Inspector，也就是 Xcode 中最右侧的一栏。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-b06629eac4d0a997.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-2.png"></p>
+<p>图中标红的地方，就是们需要更改的地方</p>
+<p>现在我们将其改为我们之前说好的新的工程的名称NewNameDemo。在 Identity and Type 中的 Name 中，我们输入NewNameDemo ，然后敲回车，你就会看到如下的界面。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-0bf68b7e73f18c8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-3.png"></p>
+<p>这里，Xcode 列举出了可以为我们做的更改两个 target 的名称，这个更改，其实也是为我们的 App 变名称了，如果你没有自己设定 App 的名称的话，咱们之前的 App 应该是 RenameDemo ，现在如果，重命名成功的话，就会变成 NewNameDemo 。</p>
+<p>点击 Rename，让 Xcode 为我们重命名一部分。此时，会提示你需不需要 Xcode 为你做 snapshot，我们这里选择 Enable ，这个是一个 Xcode 功能，我们也可以在 File &gt; Project Settings 中关掉它。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-3838907aa434aee8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-4.png"></p>
+<p>点击 Enable 之后，Xcode 6.3.1跟低版本 Xcode 不同的是项目，这个项目不能再继续运行调试了。最顶部会变成下面的样子。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-c4c82540f6e7e5d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-5.png"></p>
+<p>处理这个问题很简单，关闭工程，让后重新打开！在重新打开之前，为了重命名的完整性，我决定在 Finder 中把相关的文件夹也重命名。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-6b946ba3f3143298.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-6.png"></p>
+<p>Xcode为我们做的其实就是把它自己的工程文件重命名了，并且修改了里面的配置信息。我们需要做的是更改剩余的工程信息，在这里，只需要更改文件夹就好了，不用更改其他，因为其他的我们可以在打开 Xcode 之后再改。</p>
+<p>修改工程目录为NewNameDemo</p>
+<p>修改源文件目录NewNameDemo</p>
+<p>修改测试文件目录NewNameDemoTests</p>
+<p>修改之后是这个样子</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-19392c71392d2ecb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-7.png"></p>
+<p>3、重新打开该工程</p>
+<p>会有如下的提示</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-522f6a61c3632104.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-8.png"></p>
+<p>有几处变化使我们所能看到的</p>
+<p>a）工程又可以运行了，变为了我们所熟悉的工程。</p>
+<p>b）有很多标红的文件</p>
+<p>c）提示我们找不到 Image.xcassets 文件</p>
+<p>对于c），简单的 OK 就可以了。</p>
+<p>如果你观察细致的话，还有一个地方就是，项目的 info.plist 文件找不到了。</p>
+<p>4、给 group 找真正的实体文件夹</p>
+<p>选中 RenameDemo 这个 group ，再查看右侧的 Inspector ，发下这个 group 是一个相对的位置，我们只有修改它的关联就好了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-1d57934158b3ca8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-9.png"></p>
+<p>看右侧标红的地方，点击一下，就会让你去选择这个文件的真实位置。</p>
+<p>我们找到真实的位置如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-52035d1ff6cb0868.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-10.png"></p>
+<p>选择标红的文件夹，点击 Choose ，你会发现，之前变红的文件，都变成了实体文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-329288aa14a7ce67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-11.png"></p>
+<p>同理的，我们为 test 源文件目录也添加上。</p>
+<p>添加好之后，你就会看到如下的界面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-5a39439dccaa9a02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-12.png"></p>
+<p>5、为我们的工程找到 info.plist 文件</p>
+<p>点击 Choose info.plist File</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-0bee20a07ca79a0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-13.png"></p>
+<p>点击 Choose 就成功添加了，需要有一个地方需要改变的就是在 App Icons and Launch Images 中的 Launch Images Source 选择 Use Asset Catalog</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-db7f98774bd15e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-14.png"></p>
+<p>点击 Migrate 合并 App 需要的 Icons。</p>
+<p>6、为你的 Test Target 选择 info.plist</p>
+<p>选择 NewNameDemoTests target，并选择 Build Settings 标签，搜索一下plist，你就会看到如下的界面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-9cd15f00b6064b90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-15.png"></p>
+<p>修改2位置的内容为 NewNameDemoTests/Info.plist</p>
+<p>7、为你的Test Target 选择 Host Application</p>
+<p>更改了 plist 文件，还需要设置一下 test 的 Host Application。</p>
+<p>在NewNameDemoTests 的General 标签选择 Host Application</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-a4f3447f1adedd6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-16.png"></p>
+<p>8、编译</p>
+<p>现在，你可以编译你的工程了，如果按照步骤来的话，应该是可以编译成功的。</p>
+<p>9、如果，你有小小的代码洁癖那就更改一下 group 名称吧</p>
+<p>把源文件分组名称和 test 源文件分组名称改成NewNameDemo和NewNameDemoTests</p>
+<p>还有，你还可改一下系统默认给你创建的一个 test 文件。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-8224659d274a72f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1-17.png"></p>
+<p>10、再次编译一下，你成功了吗？！</p>
+<p>总结：</p>
+<p>这个只是原始工程的重命名，如果你是一个复杂项目的重命名，请一定做好备份。遇到问题，查看是哪部分有问题，改一下，就可以了。</p>
+<p>转载自：<br><a href="http://www.jianshu.com/p/5f088acecf64" target="_blank" rel="external">http://www.jianshu.com/p/5f088acecf64</a></p>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/IOS零碎知识点/iOS-在-Xcode-中重命名项目名称/" data-id="cip68guja001610bmu1bswsay" class="article-share-link" data-share="baidu" data-title="iOS 在 Xcode 中重命名项目名称">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/IOS零碎知识点/Xcode6-0以后如何添加Pch文件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Xcode6.0以后如何添加Pch文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/IOS零碎知识点/iOS9-3-Could-not-find-Developer-Disk-Image-真机调试错误解决办法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">iOS9.3 Could not find Developer Disk Image 真机调试错误解决办法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

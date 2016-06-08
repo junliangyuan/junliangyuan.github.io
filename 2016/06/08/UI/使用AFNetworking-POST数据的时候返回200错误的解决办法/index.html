@@ -4,17 +4,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/6 | 袁俊亮技术博客</title>
+  <title>使用AFNetworking POST数据的时候返回200错误的解决办法 | 袁俊亮技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="袁俊亮技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+  <meta name="description" content="有时候我们在用AFNetworking POST数据的时候回返回给200的错误信息。
+1response Code=-1016 &amp;quot;Request failed: unacceptable content-type: text/html&amp;quot;
+这是因为AFNetworking在解析数据的时候，默认的解析类型为1self.acceptableContentTypes = [NSSet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用AFNetworking POST数据的时候返回200错误的解决办法">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/UI/使用AFNetworking-POST数据的时候返回200错误的解决办法/index.html">
 <meta property="og:site_name" content="袁俊亮技术博客">
-<meta property="og:description">
+<meta property="og:description" content="有时候我们在用AFNetworking POST数据的时候回返回给200的错误信息。
+1response Code=-1016 &amp;quot;Request failed: unacceptable content-type: text/html&amp;quot;
+这是因为AFNetworking在解析数据的时候，默认的解析类型为1self.acceptableContentTypes = [NSSet">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-f205dc7ce899d616.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="袁俊亮技术博客">
-<meta name="twitter:description">
+<meta name="twitter:title" content="使用AFNetworking POST数据的时候返回200错误的解决办法">
+<meta name="twitter:description" content="有时候我们在用AFNetworking POST数据的时候回返回给200的错误信息。
+1response Code=-1016 &amp;quot;Request failed: unacceptable content-type: text/html&amp;quot;
+这是因为AFNetworking在解析数据的时候，默认的解析类型为1self.acceptableContentTypes = [NSSet">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-f205dc7ce899d616.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
   
@@ -71,210 +80,79 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
+      <section id="main"><article id="post-UI/使用AFNetworking-POST数据的时候返回200错误的解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/UI/使用AFNetworking-POST数据的时候返回200错误的解决办法/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+    <h1 class="article-title" itemprop="name">
+      使用AFNetworking POST数据的时候返回200错误的解决办法
     </h1>
   
 
-    </header>
-  </div>
-</article>
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
   
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
-    </h1>
-  
+      <p>有时候我们在用AFNetworking POST数据的时候回返回给200的错误信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response Code=-1016 &quot;Request failed: unacceptable content-type: text/html&quot;</span><br></pre></td></tr></table></figure>
+<p>这是因为AFNetworking在解析数据的时候，默认的解析类型为<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.acceptableContentTypes = [<span class="built_in">NSSet</span> setWithObjects:<span class="string">@"application/json"</span>, <span class="string">@"text/json"</span>, <span class="string">@"text/javascript"</span>, <span class="literal">nil</span>];</span><br></pre></td></tr></table></figure></p>
+<p>而上面的错误信息里可以看到是由于<code>unacceptable content-type: text/html&quot;</code>也就是不识别<code>text/html</code>这种数据数据类型，因为一些公司后台返回数据的方式不一样。解决办法是只需要在默认的解析类型中加上这种提示的类型即可。添加后如下</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.acceptableContentTypes = [<span class="built_in">NSSet</span> setWithObjects:<span class="string">@"application/json"</span>, <span class="string">@"text/json"</span>, <span class="string">@"text/javascript"</span>, <span class="string">@"text/plain"</span>, <span class="string">@"text/html"</span>, <span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<p><code>测试错误提示如下</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-f205dc7ce899d616.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回错误提示.png"></p>
 
-    </header>
-  </div>
-</article>
+    
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
+</div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
+        <a data-url="http://yoursite.com/2016/06/08/UI/使用AFNetworking-POST数据的时候返回200错误的解决办法/" data-id="cip68gukg002b10bmlthfntxv" class="article-share-link" data-share="baidu" data-title="使用AFNetworking POST数据的时候返回200错误的解决办法">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中数据持久化方式/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/">Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/IOS中的正则/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/IOS中的正则/">IOS中的正则</a>
-    </h1>
+    <a href="/2016/06/08/UI/仿网易新闻首页UI布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          仿网易新闻首页UI布局
+        
+      </div>
+    </a>
   
+  
+    <a href="/2016/06/08/UI/使用Dropzone和七牛云存储来优化博客图床/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">使用Dropzone和七牛云存储来优化博客图床</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/Iphone屏幕尺寸/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/Iphone屏幕尺寸/">Iphone屏幕尺寸</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/全局常量的定义、const和指针的区别/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/全局常量的定义、const和指针的区别/">全局常量的定义、const和指针的区别</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/08/IOS/SVN项目管理/" class="archive-article-date">
-  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">Jun 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/08/IOS/SVN项目管理/">SVN项目管理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
       
       <aside id="sidebar">

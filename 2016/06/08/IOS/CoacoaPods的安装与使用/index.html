@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CoacoaPods的安装与使用 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CoacoaPods标签（空格分隔）： IOS
+
+1 CocoaPods简介每种语言发展到一个阶段，就会出现相应的依赖管理工具，例如 Java 语言的 Maven，nodejs 的 npm。随着 iOS 开发者的增多，业界也出现了为 iOS 程序提供依赖管理的工具，它的名字叫做：CocoaPods。 CocoaPods 项目的源码 在 Github 上管理。该项目开始于 2011 年 8 月 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoacoaPods的安装与使用">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/IOS/CoacoaPods的安装与使用/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="CoacoaPods标签（空格分隔）： IOS
+
+1 CocoaPods简介每种语言发展到一个阶段，就会出现相应的依赖管理工具，例如 Java 语言的 Maven，nodejs 的 npm。随着 iOS 开发者的增多，业界也出现了为 iOS 程序提供依赖管理的工具，它的名字叫做：CocoaPods。 CocoaPods 项目的源码 在 Github 上管理。该项目开始于 2011 年 8 月 12">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CoacoaPods的安装与使用">
+<meta name="twitter:description" content="CoacoaPods标签（空格分隔）： IOS
+
+1 CocoaPods简介每种语言发展到一个阶段，就会出现相应的依赖管理工具，例如 Java 语言的 Maven，nodejs 的 npm。随着 iOS 开发者的增多，业界也出现了为 iOS 程序提供依赖管理的工具，它的名字叫做：CocoaPods。 CocoaPods 项目的源码 在 Github 上管理。该项目开始于 2011 年 8 月 12">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-IOS/CoacoaPods的安装与使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CoacoaPods的安装与使用
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="CoacoaPods"><a href="#CoacoaPods" class="headerlink" title="CoacoaPods"></a>CoacoaPods</h1><p>标签（空格分隔）： IOS</p>
+<hr>
+<h2 id="1-CocoaPods简介"><a href="#1-CocoaPods简介" class="headerlink" title="1 CocoaPods简介"></a>1 CocoaPods简介</h2><p>每种语言发展到一个阶段，就会出现相应的依赖管理工具，例如 Java 语言的 Maven，nodejs 的 npm。随着 iOS 开发者的增多，业界也出现了为 iOS 程序提供依赖管理的工具，它的名字叫做：CocoaPods。 CocoaPods 项目的源码 在 Github 上管理。该项目开始于 2011 年 8 月 12 日，经过多年发展，现在已经成为 iOS 开发事实上的依赖管理标准工具。开发 iOS 项目不可避免地要使用第三方开源库，CocoaPods 的出现使得我们可以节省设置和更新第三方开源库的时间。</p>
+<p>在没有使用 CocoaPods 以前，我需要: 把这些第三方开源库 的源代码文件复制到项目中，或者设置成 git 的 submodule。 对于这些开源库通常需要依赖系统的一些 framework，我需要手工地将这些 framework 分别增加到项目依赖中，比如通常情况下，一个网络库就需要增加以下 framework: CFNetwork, SystemConfiguration, MobileCoreServices, CoreGraphics, zlib。 对于某些开源库，我还需要设置-licucore或者 -fno-objc-arc等编译参数 管理这些依赖包的更新。 这些体力活虽然简单，但毫无技术含量并且浪费时间。在使用 CocoaPods 之后，我只需要将用到的第三方开源库放到一个名为 Podfile 的文件中，然后执行pod install。 CocoaPods 就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数。</p>
+<h2 id="2-CocoaPods的安装和使用介绍"><a href="#2-CocoaPods的安装和使用介绍" class="headerlink" title="2. CocoaPods的安装和使用介绍"></a>2. CocoaPods的安装和使用介绍</h2><p>安装：</p>
+<p>安装方式异常简单 , Mac 下都自带 ruby，使用 ruby 的 gem 命令即可下载安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods</span><br><span class="line">$ pod setup</span><br></pre></td></tr></table></figure>
+<p>如果你的 gem 太老，可能也会有问题，可以尝试用如下命令升级 gem:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem update --system</span><br></pre></td></tr></table></figure>
+<p>另外，ruby 的软件源[ <a href="https://rubygems.org" target="_blank" rel="external">https://rubygems.org</a>] 因为使用的是亚马逊的云服务，所以被墙了，需要更新一下 ruby 的源，使用如下代码将官方的 ruby 源替换成国内淘宝的源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem sources --remove https://rubygems.org/</span><br><span class="line">gem sources -a http://ruby.taobao.org/</span><br><span class="line">gem sources -l</span><br></pre></td></tr></table></figure>
+<p>还有一点需要注意，pod setup在执行时，会输出Setting up CocoaPods master repo，但是会等待比较久的时间。这步其实是 Cocoapods 在将它的信息下载到 ~/.cocoapods目录下，如果你等太久，可以试着 cd 到那个目录，用du -sh *来查看下载进度。你也可以参考本文接下来的使用 cocoapods 的镜像索引一节的内容来提高下载速度。</p>
+<p>使用 CocoaPods 的镜像索引：</p>
+<p>所有的项目的 Podspec 文件都托管在<a href="https://github.com/CocoaPods/Specs" target="_blank" rel="external">https://github.com/CocoaPods/Specs</a> 。第一次执行pod setup时，CocoaPods 会将这些podspec索引文件更新到本地的 ~/.cocoapods/目录下，这个索引文件比较大，有 80M 左右。所以第一次更新时非常慢。</p>
+<p>有人在 gitcafe 和 oschina 上建立了 CocoaPods 索引库的镜像，因为 gitcafe 和 oschina 都是国内的服务器，所以在执行索引更新操作时，会快很多。如下操作可以将 CocoaPods 设置成使用 gitcafe 镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pod repo remove master</span><br><span class="line">pod repo add master https://gitcafe.com/akuandev/Specs.git</span><br><span class="line">pod repo update</span><br></pre></td></tr></table></figure>
+<p>将以上代码中的 [<a href="https://gitcafe.com/akuandev/Specs.git" target="_blank" rel="external">https://gitcafe.com/akuandev/Specs.git</a>] 替换成 [<a href="http://git.oschina.net/akuandev/Specs.git" target="_blank" rel="external">http://git.oschina.net/akuandev/Specs.git</a>] 即可使用 oschina 上的镜像。</p>
+<h3 id="2-1-使用CocoaPods"><a href="#2-1-使用CocoaPods" class="headerlink" title="2.1 使用CocoaPods"></a>2.1 使用CocoaPods</h3><p>使用时需要新建一个名为 Podfile 的文件，以如下格式，将依赖的库名字依次列在文件中即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">platform :ios</span><br><span class="line">pod &apos;JSONKit&apos;,       &apos;~&gt; 1.4&apos;</span><br><span class="line">pod &apos;Reachability&apos;,  &apos;~&gt; 3.0.0&apos;</span><br><span class="line">pod &apos;ASIHTTPRequest&apos;</span><br><span class="line">pod &apos;RegexKitLite&apos;</span><br></pre></td></tr></table></figure>
+<p>然后你将编辑好的 Podfile 文件放到你的项目根目录中，执行如下命令即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;your project home&quot;</span><br><span class="line">pod install</span><br></pre></td></tr></table></figure>
+<p>现在，你的所有第三方库都已经下载完成并且设置好了编译参数和依赖，你只需要记住如下 2 点即可： 使用 CocoaPods 生成的 .xcworkspace 文件来打开工程，而不是以前的 .xcodeproj 文件。 每次更改了 Podfile 文件，你需要重新执行一次pod update命令。 查找第三方库 你如果不知道 cocoaPods 管理的库中，是否有你想要的库，那么你可以通过 pod search 命令进行查找，以下是我用 pod search json 查找到的所有可用的库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ pod search json</span><br><span class="line">-&gt; AnyJSON (0.0.1)</span><br><span class="line">   Encode / Decode JSON by any means possible.</span><br><span class="line">   - Homepage: https://github.com/mattt/AnyJSON</span><br><span class="line">   - Source:   https://github.com/mattt/AnyJSON.git</span><br><span class="line">   - Versions: 0.0.1 [master repo]</span><br><span class="line">-&gt; JSONKit (1.5pre)</span><br><span class="line">   A Very High Performance Objective-C JSON Library.</span><br><span class="line">   - Homepage: https://github.com/johnezang/JSONKit</span><br><span class="line">   - Source:   git://github.com/johnezang/JSONKit.git</span><br><span class="line">   - Versions: 1.5pre, 1.4 [master repo]</span><br><span class="line">// ... 以下省略若干行</span><br></pre></td></tr></table></figure>
+<p>关于 Podfile.lock</p>
+<p>当 你执行pod install之后，除了 Podfile 外，CocoaPods 还会生成一个名为Podfile.lock的文件，Podfile.lock 应该加入到版本控制里面，不应该把这个文件加入到.gitignore中。因为Podfile.lock会锁定当前各依赖库的版本，之后如果多次执行 pod install 不会更改版本，要pod update才会改Podfile.lock了。这样多人协作的时候，可以防止第三方库升级时造成大家各自的第三方库版本不一致。 CocoaPods 的这篇 官方文档 也在What is a Podfile.lock一节中介绍了Podfile.lock的作用，并且指出： This file should always be kept under version control.</p>
+<h3 id="2-2-不要更新podspec"><a href="#2-2-不要更新podspec" class="headerlink" title="2.2 不要更新podspec"></a>2.2 不要更新podspec</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod install --no-repo-update</span><br><span class="line">pod update --no-repo-update</span><br></pre></td></tr></table></figure>
+<h2 id="3-简历私有仓库"><a href="#3-简历私有仓库" class="headerlink" title="3. 简历私有仓库"></a>3. 简历私有仓库</h2><h3 id="3-1-创建代码仓库"><a href="#3-1-创建代码仓库" class="headerlink" title="3.1 创建代码仓库"></a>3.1 创建代码仓库</h3><p>将自己写的代码推送到git服务器。如果代码可以开源的话，可以用github来托管。</p>
+<h3 id="3-2-给稳定的代码打上版本tag，一般以版本号作为tag名"><a href="#3-2-给稳定的代码打上版本tag，一般以版本号作为tag名" class="headerlink" title="3.2 给稳定的代码打上版本tag，一般以版本号作为tag名"></a>3.2 给稳定的代码打上版本tag，一般以版本号作为tag名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a ‘1.4.1’ -m ‘version 1.4.1’</span><br></pre></td></tr></table></figure>
+<p>将tag推送到git服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-创建spec文件"><a href="#3-3-创建spec文件" class="headerlink" title="3.3 创建spec文件"></a>3.3 创建spec文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec create https://github.com/GetuiLaboratory/getui-sdk-ios-cocoapods.git</span><br></pre></td></tr></table></figure>
+<p>会在当前目录创建.podspec文件，创建的文件是个完整的配置模板，根据字面意思以及注释，大体上都能弄明白。不清楚的地方可以[参考]，github上也有很多开源代码可以参考。</p>
+<h3 id="3-4-验证spec文件有效性"><a href="#3-4-验证spec文件有效性" class="headerlink" title="3.4 验证spec文件有效性"></a>3.4 验证spec文件有效性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec lint .podspec</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-创建spec-repository（spec-仓库）"><a href="#3-5-创建spec-repository（spec-仓库）" class="headerlink" title="3.5 创建spec repository（spec 仓库）"></a>3.5 创建spec repository（spec 仓库）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├─Specs  </span><br><span class="line">    ├──getui-sdk-ios-cocoapods/  </span><br><span class="line">    ├── 1.4.1</span><br><span class="line">            └── getui-sdk-ios-cocoapods.podspec</span><br></pre></td></tr></table></figure>
+<p>这里的版本号要和代码仓库里的tag一一对应 [参考]</p>
+<h3 id="3-6-添加私有repo到CocoaPods中"><a href="#3-6-添加私有repo到CocoaPods中" class="headerlink" title="3.6 添加私有repo到CocoaPods中"></a>3.6 添加私有repo到CocoaPods中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo add GetuiLaboratory https://github.com/GetuiLaboratory/Specs.git</span><br></pre></td></tr></table></figure>
+<h3 id="3-7-验证私有repo安装无误"><a href="#3-7-验证私有repo安装无误" class="headerlink" title="3.7 验证私有repo安装无误"></a>3.7 验证私有repo安装无误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.cocoapods/repos/REPO_NAME </span><br><span class="line">$ pod repo lint .</span><br></pre></td></tr></table></figure>
+<p>后面如果还要往REPO_NAME里添加新包，只需运行下面命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo push REPO_NAME SPEC_NAME.podspec</span><br></pre></td></tr></table></figure>
+<p>如要删除私有repo：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo remove [name]</span><br></pre></td></tr></table></figure>
+<h3 id="3-8-添加包到工程的Podfile中如下："><a href="#3-8-添加包到工程的Podfile中如下：" class="headerlink" title="3.8 添加包到工程的Podfile中如下："></a>3.8 添加包到工程的Podfile中如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://github.com/GetuiLaboratory/Specs.git&apos;</span><br><span class="line">source &apos;https://github.com/CocoaPods/Specs.git&apos;</span><br><span class="line"> </span><br><span class="line">platform :ios, &quot;7.0&quot;</span><br><span class="line">pod &apos;Reachability&apos;</span><br><span class="line">pod &apos;getui-sdk-ios-cocoapods&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="3-9-运行"><a href="#3-9-运行" class="headerlink" title="3.9 运行"></a>3.9 运行</h3><p>到工程目录下运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod update</span><br></pre></td></tr></table></figure>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/IOS/CoacoaPods的安装与使用/" data-id="cip68guht000210bm6fbk0zs4" class="article-share-link" data-share="baidu" data-title="CoacoaPods的安装与使用">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          10亿红包从天而降，揭秘微信摇一摇背后的技术细节
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">IOS中的加密方式MD5、sha512</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

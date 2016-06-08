@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>本地推送通知、远程推送通知、激光推送 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本地推送通知、远程推送通知、激光推送标签（空格分隔）： IOS
+
+[TOC]
+概述1.推送通知的作用：可以让不在前台运行的APP，告知用户app内部发生了什么事情
+2. 推送通知的呈现效果123451. 在屏幕顶部显示一块横幅（显示具体内容）2. 在屏幕中间弹出一个UIAlertView（显示具体内容）3. 在锁屏界面显示一块横幅（锁屏状态下，显示具体内容）4. 呈现推送通知的同时，更新app图标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地推送通知、远程推送通知、激光推送">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/UI/本地推送通知、远程推送通知、激光推送/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="本地推送通知、远程推送通知、激光推送标签（空格分隔）： IOS
+
+[TOC]
+概述1.推送通知的作用：可以让不在前台运行的APP，告知用户app内部发生了什么事情
+2. 推送通知的呈现效果123451. 在屏幕顶部显示一块横幅（显示具体内容）2. 在屏幕中间弹出一个UIAlertView（显示具体内容）3. 在锁屏界面显示一块横幅（锁屏状态下，显示具体内容）4. 呈现推送通知的同时，更新app图标">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-226b962c4346839f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-a2d6731fdc74685b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-399ace80e67d6528.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-41aac497e140ed46.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-5358646590e37863.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-212fc455d19a6559.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-7980199b582fee44.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-18d77f699b16adf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地推送通知、远程推送通知、激光推送">
+<meta name="twitter:description" content="本地推送通知、远程推送通知、激光推送标签（空格分隔）： IOS
+
+[TOC]
+概述1.推送通知的作用：可以让不在前台运行的APP，告知用户app内部发生了什么事情
+2. 推送通知的呈现效果123451. 在屏幕顶部显示一块横幅（显示具体内容）2. 在屏幕中间弹出一个UIAlertView（显示具体内容）3. 在锁屏界面显示一块横幅（锁屏状态下，显示具体内容）4. 呈现推送通知的同时，更新app图标">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-226b962c4346839f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-UI/本地推送通知、远程推送通知、激光推送" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/UI/本地推送通知、远程推送通知、激光推送/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      本地推送通知、远程推送通知、激光推送
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="本地推送通知、远程推送通知、激光推送"><a href="#本地推送通知、远程推送通知、激光推送" class="headerlink" title="本地推送通知、远程推送通知、激光推送"></a>本地推送通知、远程推送通知、激光推送</h1><p>标签（空格分隔）： IOS</p>
+<hr>
+<p>[TOC]</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="1-推送通知的作用："><a href="#1-推送通知的作用：" class="headerlink" title="1.推送通知的作用："></a>1.推送通知的作用：</h3><p>可以让<code>不在前台运行的APP</code>，告知用户app内部发生了什么事情</p>
+<h3 id="2-推送通知的呈现效果"><a href="#2-推送通知的呈现效果" class="headerlink" title="2. 推送通知的呈现效果"></a>2. 推送通知的呈现效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 在屏幕顶部显示一块横幅（显示具体内容）</span><br><span class="line">2. 在屏幕中间弹出一个UIAlertView（显示具体内容）</span><br><span class="line">3. 在锁屏界面显示一块横幅（锁屏状态下，显示具体内容）</span><br><span class="line">4. 呈现推送通知的同时，更新app图标的提醒数字（说明新内容的数量）</span><br><span class="line">5. 播放音效（提醒作用）</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>具体效果如下</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>如图1-1 在屏幕顶部显示一块横幅</li>
+</ol>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-226b962c4346839f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image7.PNG"></p>
+<ul>
+<li><ol>
+<li>在屏幕中间弹出一个UIAlertView<br><img src="http://upload-images.jianshu.io/upload_images/266271-a2d6731fdc74685b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image8.PNG"></li>
+</ol>
+</li>
+<li><p>3.在锁屏时也可以照样呈现<br><img src="http://upload-images.jianshu.io/upload_images/266271-399ace80e67d6528.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image9.PNG"></p>
+</li>
+<li><p>4.呈现推送通知的同时，还可以更新app图标的数字<br><img src="http://upload-images.jianshu.io/upload_images/266271-41aac497e140ed46.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image10.PNG"></p>
+</li>
+<li><p>5.用户接收的推送通知，都会展示在“通知中心”，从屏幕顶部往下滑就能调出“通知中心”</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-5358646590e37863.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image11.PNG"></p>
+<p><strong>推送通知的呈现效果设置</strong></p>
+<p><code>设置横幅显示还是UIAlertView</code>具体显示效果是横幅还是UIAlertView取决于用户的设置，而不是程序的设置。设置方法为</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-212fc455d19a6559.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="推送通知的呈现效果设置.png"></p>
+<p><code>其他用户权限提醒设置</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 显示app图标数字</span><br><span class="line">2. 播放音效</span><br><span class="line">3. 锁屏显示</span><br><span class="line">4. 显示在“通知中心”</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-7980199b582fee44.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image16.PNG"></p>
+<p><strong>其他注意点</strong></p>
+<ul>
+<li>发出推送通知是，如果<code>当前程序正在运行</code>，那么推送通知就不会被呈现出来</li>
+<li>点击推送通知后，默认会自动打开发出推送通知的app</li>
+<li>即使app被完全退出，推送通知都能如期发出</li>
+</ul>
+<h2 id="本地推送通知-Local-Notification"><a href="#本地推送通知-Local-Notification" class="headerlink" title="本地推送通知(Local Notification)"></a>本地推送通知(Local Notification)</h2><ul>
+<li>本地通知：就是不需要联网就能发出的推送通知（不需要服务器的支持）</li>
+</ul>
+<h3 id="本地推送通知的使用"><a href="#本地推送通知的使用" class="headerlink" title="本地推送通知的使用"></a>本地推送通知的使用</h3><h4 id="创建并发出本地通知的流程"><a href="#创建并发出本地通知的流程" class="headerlink" title="创建并发出本地通知的流程"></a>创建并发出本地通知的流程</h4><ul>
+<li>两个必填参数<code>fireDate</code>和<code>alertBody</code></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建本地推送通知对象</span></span><br><span class="line"><span class="built_in">UILocalNotification</span> *localNote = [[<span class="built_in">UILocalNotification</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.设置本地推送通知内容(下面两个是必填参数)</span></span><br><span class="line"><span class="comment">// 2.1设置通知发出时间（触发后5秒钟后发出通知）</span></span><br><span class="line">localNote.fireDate = [<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">5.0</span>];</span><br><span class="line"><span class="comment">// 2.2 设置通知的内容</span></span><br><span class="line">localNote.alertBody = <span class="string">@"吃饭了吗"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.调用通知</span></span><br><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] scheduleLocalNotification:localNote];</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：在IOS8以后必须先注册本地通知用户设置</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// 在IOS8中必须注册本地通知</span></span><br><span class="line">    <span class="keyword">if</span> ([[<span class="built_in">UIDevice</span> currentDevice].systemVersion doubleValue] &gt;= <span class="number">8.0</span>) &#123;</span><br><span class="line">        <span class="built_in">UIUserNotificationSettings</span> *settings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeAlert</span> | <span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span> categories:<span class="literal">nil</span>];</span><br><span class="line">        </span><br><span class="line">        [application registerUserNotificationSettings:settings];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="本地通知的其他常用属性"><a href="#本地通知的其他常用属性" class="headerlink" title="本地通知的其他常用属性"></a>本地通知的其他常用属性</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置有通知的提醒声音</span></span><br><span class="line"><span class="comment">// 这个是设置系统默认声音</span></span><br><span class="line">localNote.soundName = <span class="built_in">UILocalNotificationDefaultSoundName</span>;</span><br><span class="line"><span class="comment">// 这个是设置自定义声音</span></span><br><span class="line">localNote.soundName = <span class="string">@"yaobuqi.wav"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过点击通知进入应用的时候是否显示启动图标（注意：这里的启动图片名称随便写）</span></span><br><span class="line">localNote.alertLaunchImage = <span class="string">@"这里随便写"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更改应用程序图标右上角的数字</span></span><br><span class="line">localNote.applicationIconBadgeNumber = <span class="number">998</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置一些额外的通知数据</span></span><br><span class="line">localNote.userInfo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重复间隔（枚举类型）</span></span><br><span class="line">localNote.repeatInterval;</span><br><span class="line"><span class="comment">// 重复间隔（可自定义设置）</span></span><br><span class="line">localNote.repeatCalendar;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区域（用于定位功能：进入某个区域以后进行通知提醒）</span></span><br><span class="line">localNote.region;</span><br><span class="line"><span class="comment">// 在这个区域的提醒次数（和上面的属性配合使用，如果设置为YES，就是进入这个区域永远只触发一次）</span></span><br><span class="line">localNote.regionTriggersOnce;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置锁屏状态下滑块的文字</span></span><br><span class="line">localNote.alertAction;</span><br><span class="line"><span class="comment">// 决定上面的alertAction是否生效</span></span><br><span class="line">localNote.hasAction;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置通知中心的标题</span></span><br><span class="line">localNote.alertTitle;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 时区，如果不设置会以默认语言为默认时区</span></span><br><span class="line">localNote.timeZone;</span><br></pre></td></tr></table></figure>
+<p><code>消除掉图标右上角提醒数字</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    [application setApplicationIconBadgeNumber:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="监听本地通知"><a href="#监听本地通知" class="headerlink" title="监听本地通知"></a>监听本地通知</h4><p><code>需求</code>：点击收到的通知后，跳转到指定的页面。应该分别在两个方法中设置</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (launchOptions[<span class="built_in">UIApplicationLaunchOptionsLocalNotificationKey</span>]) &#123;</span><br><span class="line">        <span class="comment">// 进入该方法说明是应用程序被杀死的情况下通过点击本地通知进入的该方法</span></span><br><span class="line">        <span class="comment">// 如果应用程序没有被杀死，通过点击本地通知只会进入didReceiveLocalNotification方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  收到本地通知后，并且应用程序在前台或进入前台时才调用本方法</span><br><span class="line"> *  如果应用程序被杀死了以后，再通过点击通知进入前台的时候也不会调用该方法。这种情况下应该在didFinishLaunchingWithOptions方法中设置点击通知后的操作</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveLocalNotification:(<span class="built_in">UILocalNotification</span> *)notification</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (application.applicationState == <span class="built_in">UIApplicationStateInactive</span>) &#123;</span><br><span class="line">        <span class="comment">// 当应用程序进入前台的时候执行</span></span><br><span class="line">        <span class="comment">// 如果需要判断跳转到哪个页面，可以根据notification的userInfo传递过来的值来判断</span></span><br><span class="line">        <span class="comment">// 调试小技巧：如果想看应用程序退出后再进入前台是否执行了该方法，由于，退出应用程序后XCode就不再处于调试状态，所以不能通过打印来判断是否执行了该方法。但是可以通过给一个View添加一个控件来判断是否执行了该方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="远程推送通知-Remote-Notification"><a href="#远程推送通知-Remote-Notification" class="headerlink" title="远程推送通知(Remote Notification)"></a>远程推送通知(Remote Notification)</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><ul>
+<li>从<code>远程服务器</code>推送给<code>客户端</code>的通知</li>
+<li>远程推送服务，有称为APNs(Apple Push Notification Services)</li>
+<li>不管用户是打开还是关闭app，只要联网了，都能接收到服务器推送的远程服务</li>
+<li>所有的苹果设备，在联网状态下，都会与<code>苹果的服务器</code>建立<code>长连接</code><ul>
+<li><code>长连接</code>：就是始终保存连接<ul>
+<li>好处：服务器和客户端都可以给对方发送消息</li>
+<li>坏处：需要始终和服务器保存连接（高并发），比较消耗服务器资源</li>
+<li>作用：<code>时间校准</code>,<code>系统和应用升级消息</code>，<code>查找我的iphone</code>,<code>远程推送</code></li>
+</ul>
+</li>
+<li><code>短连接</code><ul>
+<li>好处：发送完消息以后就断开，可以节省服务器资源</li>
+<li>坏处：服务器不能主动向客户端发送消息<h3 id="远程推送过程"><a href="#远程推送过程" class="headerlink" title="远程推送过程"></a>远程推送过程</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- 1.获取用户A的`设备的UDID`（设备的唯一标识）和`应用的Bundle Identifier`（应用的唯一标识）发给APNs服务器</span><br><span class="line">- 2.经过苹果加密生成一个deviceToken</span><br><span class="line">- 3.发送用户A的deviceToken和用户的基本信息给QQ的服务器</span><br><span class="line">- 4.QQ服务器接收到用户A的信息后存进数据库</span><br><span class="line">- 5.当用户B发送消息给用户A时</span><br><span class="line">    - 用户B先发送消息给QQ服务器</span><br><span class="line">    - QQ服务器先查看用户A的app是否在前台</span><br><span class="line">        - 如果在前台，直接发送消息给用户A</span><br><span class="line">        - 如果没有在前台，QQ服务器会去数据库中查到用户A的deviceToken并把用户A的各种消息参数和deviceToken发送给APNs服务器</span><br><span class="line">    - APNs服务器根据deviceToken来判断应该把消息推送给哪个用户的哪个应用程序</span><br></pre></td></tr></table></figure>
+<h3 id="远程推送的开发必要条件"><a href="#远程推送的开发必要条件" class="headerlink" title="远程推送的开发必要条件"></a>远程推送的开发必要条件</h3><ul>
+<li>1.开发远程推送通知需要做的操作步骤<ul>
+<li>1.请求苹果获得deviceToken</li>
+<li>2.得到苹果返回的deviceToken</li>
+<li>3.发送deviceToken给公司的服务器</li>
+<li>4.监听用户对通知的点击</li>
+</ul>
+</li>
+<li>2.调试IOS的远程推送功能，必备条件<ul>
+<li>1.必须要有真机（因为需要获取deviceToken）</li>
+<li>2.调试推送通知需要的证书文件<ul>
+<li>xxx_devilopment.cer（测试证书）:某台电脑就能调试某个app的推送服务</li>
+<li>xxx.mobileprovision（描述文件）:某台电脑就能利用某台设备调试某个程序</li>
+</ul>
+</li>
+<li>3.发布具有推送服务的app<ul>
+<li>xxx_production.cer（证书）:如果发布的程序中包含了推送服务，就必须安装这个证书</li>
+<li>xxx.mobileprovision（描述文件）:某台电脑就能发布某个程序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>配置证书和描述文件的流程</strong> </p>
+<h3 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h3><ul>
+<li>1.注册远程通知，请求苹果获得deviceToken</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([[<span class="built_in">UIDevice</span> currentDevice].systemVersion doubleValue] &gt;= <span class="number">8.0</span>) &#123;</span><br><span class="line">        <span class="comment">// IOS8.0的注册远程通知</span></span><br><span class="line">        <span class="built_in">UIUserNotificationSettings</span> *settings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span> | <span class="built_in">UIUserNotificationTypeAlert</span> categories:<span class="literal">nil</span>];</span><br><span class="line">        [application registerUserNotificationSettings:settings];</span><br><span class="line">        [application registerForRemoteNotifications];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// IOS7.0的注册远程通知</span></span><br><span class="line">        [application registerForRemoteNotificationTypes:<span class="built_in">UIRemoteNotificationTypeAlert</span> | <span class="built_in">UIRemoteNotificationTypeBadge</span> | <span class="built_in">UIRemoteNotificationTypeNewsstandContentAvailability</span> | <span class="built_in">UIRemoteNotificationTypeSound</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.获取deviceToken，并发送deviceToken给公司服务器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册远程通知成功以后会回调该方法，来返回deviceToken</span></span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="built_in">NSData</span> *)deviceToken</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 将获取到的deviceToken发送给服务器</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,deviceToken);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.监听到远程通知后的操作</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常收到远程通知后调用该监听方法</span></span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,userInfo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同时需要在该方法中也进行操作</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// 在杀死应用程序的前提下通过点击推送通知进入应用前台会来到这个方法。在这里做一些操作（比如应用间的跳转）</span></span><br><span class="line">    <span class="keyword">if</span> (launchOptions[<span class="built_in">UIApplicationLaunchOptionsRemoteNotificationKey</span>]) &#123;</span><br><span class="line">        <span class="comment">// 进行应用间的跳转</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>注意</code>应用程序后台监听到远程推送通知时后台会自动调用的方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当收到远程通知的时候在后台会自动调用该方法</span></span><br><span class="line"><span class="comment">// 即使用户不点击通知，也会自动执行该方法</span></span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo fetchCompletionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">UIBackgroundFetchResult</span>))completionHandler</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 告诉系统有新内容的更新</span></span><br><span class="line">    completionHandler(<span class="built_in">UIBackgroundFetchResultNewData</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>该方法使用步骤：</p>
+<ul>
+<li>1.打开后台远程推送模式</li>
+<li>2.告诉系统是否有新内容的更新</li>
+<li>3.发送的通知有固定的格式<ul>
+<li>必须包含  “content-avaliable”:”这里随便写个字符串”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>打开后台模式</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/266271-18d77f699b16adf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开启后台远程通知模式.png"></p>
+<ul>
+<li>服务器模拟软件：<a href="https://github.com/stefanhafeneger/PushMeBaby" target="_blank" rel="external">PushMeBaby</a><ul>
+<li>使用方法：将测试证书改名为apns.cer并拖入该程序。运行即可</li>
+</ul>
+</li>
+</ul>
+<h2 id="激光推送"><a href="#激光推送" class="headerlink" title="激光推送"></a>激光推送</h2>
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/UI/本地推送通知、远程推送通知、激光推送/" data-id="cip68gul4002y10bmfgmaucpl" class="article-share-link" data-share="baidu" data-title="本地推送通知、远程推送通知、激光推送">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/UI/控制器的多种创建方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          控制器的多种创建方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/UI/通知中心(NSNotificationCenter)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">通知中心(NSNotificationCenter)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>

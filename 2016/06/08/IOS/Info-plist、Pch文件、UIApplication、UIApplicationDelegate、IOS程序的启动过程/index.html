@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="项目中常用的文件标签（空格分隔）： IOS
+
+[TOC]
+Info.plist和pch文件的作用Info.plist文件
+该文件对工程做一些运行期的配置，非常重要，不能删除
+Bundle Name:项目名称
+Bundle Identifier:应用的唯一标识，一般用域名的反写
+Bundle version string short:app的正式版本，上传到AppStore的版本必须大于前一个版本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="项目中常用的文件标签（空格分隔）： IOS
+
+[TOC]
+Info.plist和pch文件的作用Info.plist文件
+该文件对工程做一些运行期的配置，非常重要，不能删除
+Bundle Name:项目名称
+Bundle Identifier:应用的唯一标识，一般用域名的反写
+Bundle version string short:app的正式版本，上传到AppStore的版本必须大于前一个版本">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-e0c08c2401772155.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程">
+<meta name="twitter:description" content="项目中常用的文件标签（空格分隔）： IOS
+
+[TOC]
+Info.plist和pch文件的作用Info.plist文件
+该文件对工程做一些运行期的配置，非常重要，不能删除
+Bundle Name:项目名称
+Bundle Identifier:应用的唯一标识，一般用域名的反写
+Bundle version string short:app的正式版本，上传到AppStore的版本必须大于前一个版本">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266271-e0c08c2401772155.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/" class="article-date">
+  <time datetime="2016-06-08T01:37:44.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <h1 id="项目中常用的文件"><a href="#项目中常用的文件" class="headerlink" title="项目中常用的文件"></a>项目中常用的文件</h1><p>标签（空格分隔）： IOS</p>
+<hr>
+<p>[TOC]</p>
+<h2 id="Info-plist和pch文件的作用"><a href="#Info-plist和pch文件的作用" class="headerlink" title="Info.plist和pch文件的作用"></a>Info.plist和pch文件的作用</h2><h3 id="Info-plist文件"><a href="#Info-plist文件" class="headerlink" title="Info.plist文件"></a>Info.plist文件</h3><ul>
+<li>该文件对工程做一些运行期的配置，非常重要，不能删除<ul>
+<li>Bundle Name:项目名称</li>
+<li>Bundle Identifier:应用的唯一标识，一般用域名的反写</li>
+<li>Bundle version string short:app的正式版本，上传到AppStore的版本必须大于前一个版本</li>
+<li>Bundle version:内部测试版本</li>
+<li>Main StoryBoard file base name:标识应用程序已启动首先加载名为main的storyBoard(main.storyboard)</li>
+<li>还有一个InfoPlist.strings文件，该文件是用于做本地化处理的文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="PCH文件"><a href="#PCH文件" class="headerlink" title="PCH文件"></a>PCH文件</h3><ul>
+<li>pch头文件中的内容能被项目中的其他所有源文件共享和访问</li>
+<li>pch文件的应用场景<ul>
+<li>用来定义一些全局的宏</li>
+<li>用来导入一些全局都能用到的头文件</li>
+<li><strong>OBJC</strong>这个宏，只在所有的.m和.mm文件中默认就定义了这个宏</li>
+<li>如果一个全局的头文件或宏只需要在.m或者.mm文件中使用，就把该头文件或宏写到下面的宏定义中。如果</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef __OBJC__</span></span><br><span class="line"><span class="comment">// 写到这里</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义<code>NSLog</code></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef DEBUG // 调试阶段</span></span><br><span class="line"><span class="meta">#define JLLog(...) NSLog(__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#else // 发布阶段</span></span><br><span class="line"><span class="meta">#define JLLog(...)</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
+<h2 id="UIApplication的常见使用"><a href="#UIApplication的常见使用" class="headerlink" title="UIApplication的常见使用"></a>UIApplication的常见使用</h2><ul>
+<li>一个UIApplication代表着一个应用程序，而且application是一个单例</li>
+<li>通过[UIApplication sharedApplication]可以获得这个单例对象</li>
+<li>IOS程序启动后创建的第一个对象就是UIApplication对象</li>
+<li>利用UIApplication对象，能进行一些应用级的操作</li>
+</ul>
+<p>eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIApplication</span> *application = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line"><span class="comment">// 给应用图标上添加一个消息提醒数字</span></span><br><span class="line">application.applicationIconBadgeNumber = <span class="number">998</span>;</span><br><span class="line"><span class="comment">// 设置状态栏的联网动画</span></span><br><span class="line">application.networkActivityIndicatorVisible = <span class="literal">YES</span>;</span><br><span class="line"><span class="comment">// 控制状态栏样式(可以统一控制全局一样)</span></span><br><span class="line"><span class="comment">// 注意这里需要修改Info.plist文件</span></span><br><span class="line"><span class="comment">// 添加一个属性View controller-based status bar appearance 设置为 NO</span></span><br><span class="line">application.statusBarStyle = <span class="built_in">UIStatusBarStyleLightContent</span>;</span><br><span class="line"><span class="comment">// 设置状态栏是否隐藏</span></span><br><span class="line">application.statusBarHidden = <span class="literal">YES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// openURL:方法</span></span><br><span class="line"><span class="comment">// 打电话</span></span><br><span class="line">[application openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"tel://10086"</span>]];</span><br><span class="line"><span class="comment">// 发短信</span></span><br><span class="line">[application openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"sms://10086"</span>]];</span><br><span class="line"><span class="comment">// 发邮件</span></span><br><span class="line">[application openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"mailto://12345@qq.com"</span>]];</span><br><span class="line"><span class="comment">// 打开一个网页资源</span></span><br><span class="line">[application openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://www.yuanjunliang.cc"</span>]];</span><br><span class="line"><span class="comment">// 打开其他app程序</span></span><br></pre></td></tr></table></figure>
+<h2 id="AppDelegate的代理方法"><a href="#AppDelegate的代理方法" class="headerlink" title="AppDelegate的代理方法"></a>AppDelegate的代理方法</h2><ul>
+<li>在app受到干扰时，会产生一些系统事件，这时UIApplication会通知它的delegate对象，让delegate对象来处理这些系统事件</li>
+<li>delegate可处理的事件包括：<ul>
+<li>应用程序的生命周期事件(如程序的启动和关闭)</li>
+<li>系统事件(如来电)</li>
+<li>内存警告</li>
+</ul>
+</li>
+</ul>
+<h2 id="IOS程序的启动过程"><a href="#IOS程序的启动过程" class="headerlink" title="IOS程序的启动过程"></a>IOS程序的启动过程</h2><p><img src="http://upload-images.jianshu.io/upload_images/266271-e0c08c2401772155.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IOS程序启动过程.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 打开程序</span><br><span class="line">2 执行main函数</span><br><span class="line">3 执行UIApplicationMain函数，并创建UIApplicationDelegate对象</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>4 delegate对象开始处理(监听)系统事件(没有storyBoard)</p>
+<ul>
+<li>程序启动完毕的时候，就会调用代理的didFinishLaunchingWithOptions方法</li>
+<li>在didFinishLaunchingWithOptions方法中创建UIWindow</li>
+<li>创建和设置UIWindow的rootViewController</li>
+<li>显示窗口</li>
+</ul>
+</li>
+<li><p>4.根据Info.plist获得最主要的storyBoard的文件名，加载最主要的storyBoard(有storyBoard)</p>
+<ul>
+<li>创建UIWindow</li>
+<li>创建和设置UIWindow的rootViewController</li>
+<li>显示窗口</li>
+</ul>
+</li>
+</ul>
+<h4 id="UIApplicationMain"><a href="#UIApplicationMain" class="headerlink" title="UIApplicationMain"></a>UIApplicationMain</h4><ul>
+<li>main函数执行了一个UIApplicationMain这个函数</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="built_in">NSString</span> *principalClassName, <span class="built_in">NSString</span> *delegateClassName));</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. principalClassName:指定应用程序类名(app的象征)，该类必须是UIApplication(或子类)，如果为nil，则用UIApplication类作为默认值</span><br><span class="line"></span><br><span class="line">2. delegateClassName:指定应用程序的代理类，该类必须遵守UIApplicationDelegate协议</span><br></pre></td></tr></table></figure>
+<h2 id="UIWindow"><a href="#UIWindow" class="headerlink" title="UIWindow"></a>UIWindow</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 让window成为主窗口，并显示出来</span></span><br><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line"><span class="comment">// 让window成为主窗口，当并不显示出来</span></span><br><span class="line">[<span class="keyword">self</span>.window makeKeyWindow];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取应用程序的主窗口</span></span><br><span class="line">[<span class="built_in">UIApplication</span> sharedApplication].keyWindow;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>UIWindow是一种特殊的UIView，通常在一个app中只会有一个UIWindow</li>
+<li>IOS程序启动完毕后，创建的第一个视图控件就是UIWindow，接着创建控制器的view，最后将控制器的view添加到UIWindow上，于是控制器的view就显示在屏幕上了</li>
+<li>一个IOS程序之所以能显示到屏幕上，完全是因为它有UIWindow</li>
+</ul>
+<h3 id="UIApplicationDelegate中代理方法的作用"><a href="#UIApplicationDelegate中代理方法的作用" class="headerlink" title="UIApplicationDelegate中代理方法的作用"></a>UIApplicationDelegate中代理方法的作用</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 当应用程序启动完毕的时候就会调用(只是在启动的时候调用)</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用程序即将失去焦点的时候调用(不可交互的时候调用)</span></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用程序进入后台的时候调用</span></span><br><span class="line"><span class="comment">// 一般在该方法中保存应用程序的数据以及状态</span></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidEnterBackground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用程序即将进入前台的时候调用</span></span><br><span class="line"><span class="comment">// 一般在该方法中回复应用程序的数据以及状态</span></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新获取焦点(能够和用户交互)</span></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用程序即将被销毁的时候回调用该方法</span></span><br><span class="line"><span class="comment">// 注意，如果应用程序处于挂起状态的时候无法调用该方法</span></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当接收到内存警告的时候调用</span></span><br><span class="line"><span class="comment">// 一般在该方法中释放掉不需要的内容，否则系统可能会强制关闭应用</span></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidReceiveMemoryWarning:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/08/IOS/Info-plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程/" data-id="cip68gui5000610bmr8346q8w" class="article-share-link" data-share="baidu" data-title="Info.plist、Pch文件、UIApplication、UIApplicationDelegate、IOS程序的启动过程">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/IOS/IOS中数据持久化方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          IOS中数据持久化方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/08/IOS/IOS中的正则/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">IOS中的正则</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/行业观点/10亿红包从天而降，揭秘微信摇一摇背后的技术细节/">10亿红包从天而降，揭秘微信摇一摇背后的技术细节</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/CoacoaPods的安装与使用/">CoacoaPods的安装与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
