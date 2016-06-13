@@ -9,8 +9,8 @@
   <meta name="description" content="计算文字的宽高,Label的多行显示标签（空格分隔）： IOS零碎知识点
 
 在使用UILabel存放字符串时，经常需要获取label的长宽数据，本文列出了部分常用的计算方法。
-1.获取宽度，获取字符串不折行单行显示时所需要的长度 
-1CGSize titleSize = [aString sizeWithFont:font constrainedToSize:CGSizeMake(MAXFLOAT">
+计算文字的宽高（分类封装）.h文件
+12345678910111213141516#import &amp;lt;Foundation/Foundation.h&amp;gt;@interface NSString (Category)/*">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态获取UILabel的高度和宽度">
 <meta property="og:url" content="http://yoursite.com/2016/06/08/IOS零碎知识点/动态获取UILabel的高度和宽度/index.html">
@@ -18,16 +18,16 @@
 <meta property="og:description" content="计算文字的宽高,Label的多行显示标签（空格分隔）： IOS零碎知识点
 
 在使用UILabel存放字符串时，经常需要获取label的长宽数据，本文列出了部分常用的计算方法。
-1.获取宽度，获取字符串不折行单行显示时所需要的长度 
-1CGSize titleSize = [aString sizeWithFont:font constrainedToSize:CGSizeMake(MAXFLOAT">
-<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+计算文字的宽高（分类封装）.h文件
+12345678910111213141516#import &amp;lt;Foundation/Foundation.h&amp;gt;@interface NSString (Category)/*">
+<meta property="og:updated_time" content="2016-06-12T07:03:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态获取UILabel的高度和宽度">
 <meta name="twitter:description" content="计算文字的宽高,Label的多行显示标签（空格分隔）： IOS零碎知识点
 
 在使用UILabel存放字符串时，经常需要获取label的长宽数据，本文列出了部分常用的计算方法。
-1.获取宽度，获取字符串不折行单行显示时所需要的长度 
-1CGSize titleSize = [aString sizeWithFont:font constrainedToSize:CGSizeMake(MAXFLOAT">
+计算文字的宽高（分类封装）.h文件
+12345678910111213141516#import &amp;lt;Foundation/Foundation.h&amp;gt;@interface NSString (Category)/*">
   
     <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
   
@@ -115,29 +115,20 @@
       <h1 id="计算文字的宽高-Label的多行显示"><a href="#计算文字的宽高-Label的多行显示" class="headerlink" title="计算文字的宽高,Label的多行显示"></a>计算文字的宽高,Label的多行显示</h1><p>标签（空格分隔）： IOS零碎知识点</p>
 <hr>
 <p>在使用UILabel存放字符串时，经常需要获取label的长宽数据，本文列出了部分常用的计算方法。</p>
-<p>1.获取宽度，获取字符串不折行单行显示时所需要的长度 </p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGSize</span> titleSize = [aString sizeWithFont:font constrainedToSize:<span class="built_in">CGSizeMake</span>(MAXFLOAT, <span class="number">30</span>)];</span><br></pre></td></tr></table></figure>
-<p>注：如果想得到宽度的话，size的width应该设为MAXFLOAT。</p>
-<p>2.获取高度，获取字符串在指定的size内(宽度超过label的宽度则换行)所需的实际高度.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGSize</span> titleSize = [aString sizeWithFont:font constrainedToSize:<span class="built_in">CGSizeMake</span>(label.frame.size.width, MAXFLOAT) lineBreakMode:<span class="built_in">UILineBreakModeWordWrap</span>];</span><br></pre></td></tr></table></figure>
-<p>注：如果想得到高度的话，size的height应该设为MAXFLOAT。</p>
-<p>3.实际编程时，有时需要计算一段文字最后一个字符的位置，并在其后添加图片或其他控件（如info图标），下面代码为计算label中最后一个字符后面一位的位置的方法。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGSize</span> sz = [label.text sizeWithFont:label.font constrainedToSize:<span class="built_in">CGSizeMake</span>(MAXFLOAT, <span class="number">40</span>)];</span><br><span class="line"></span><br><span class="line"><span class="built_in">CGSize</span> linesSz = [label.text sizeWithFont:label.font constrainedToSize:<span class="built_in">CGSizeMake</span>(label.frame.size.width, MAXFLOAT) lineBreakMode:<span class="built_in">UILineBreakModeWordWrap</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(sz.width &lt;= linesSz.width) <span class="comment">//判断是否折行</span></span><br><span class="line">&#123;</span><br><span class="line">    lastPoint = <span class="built_in">CGPointMake</span>(label.frame.origin.x + sz.width, label.frame.origin.y);  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    lastPoint = <span class="built_in">CGPointMake</span>(label.frame.origin.x + (<span class="keyword">int</span>)sz.width % (<span class="keyword">int</span>)linesSz.width,linesSz.height - sz.height);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4 通过以下方法得到文字的size</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="built_in">CGSize</span>)content:(<span class="built_in">NSString</span> *)content boundingRectWithSize:(<span class="built_in">CGSize</span>)size</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *attribute = @&#123;<span class="built_in">NSFontAttributeName</span>: [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">14</span>]&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> retSize = [content boundingRectWithSize:size</span><br><span class="line">                                           options:</span><br><span class="line">                      <span class="built_in">NSStringDrawingTruncatesLastVisibleLine</span> |</span><br><span class="line">                      <span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> |</span><br><span class="line">                      <span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                        attributes:attribute</span><br><span class="line">                                           context:<span class="literal">nil</span>].size;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> retSize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="UILabel的多行显示的处理方式"><a href="#UILabel的多行显示的处理方式" class="headerlink" title="UILabel的多行显示的处理方式"></a>UILabel的多行显示的处理方式</h2><p>如果多行UILabel单纯的显示多行文本，不是带标签的富文本，那么就要设置preferredMaxLayoutWidth属性。如果是显示多行带html标签的富文本内容，可以不设置这个属性。那么为了不出错，最好两种情况下都设置下这个属性。</p>
-<p>设置Label的numberOfLines=0</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label.numberOfLines = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-
+<h2 id="计算文字的宽高（分类封装）"><a href="#计算文字的宽高（分类封装）" class="headerlink" title="计算文字的宽高（分类封装）"></a>计算文字的宽高（分类封装）</h2><p>.h文件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">Category</span>)</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  计算文字的高度</span><br><span class="line"> *</span><br><span class="line"> *  @param content  所需要计算的文字的内容</span><br><span class="line"> *  @param size     文字的宽高尺寸</span><br><span class="line"> *  @param fontSize 文字的size</span><br><span class="line"> *</span><br><span class="line"> *  @return 整个内容的size</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">CGSize</span>)content:(<span class="built_in">NSString</span> *)content boundingRectWithSize:(<span class="built_in">CGSize</span>)size fontSize:(<span class="built_in">CGFloat</span>)fontSize;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>.m文件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"NSString+Category.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">Category</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  计算文字的高度</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">CGSize</span>)content:(<span class="built_in">NSString</span> *)content boundingRectWithSize:(<span class="built_in">CGSize</span>)size fontSize:(<span class="built_in">CGFloat</span>)fontSize</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *attribute = @&#123;<span class="built_in">NSFontAttributeName</span>: [<span class="built_in">UIFont</span> systemFontOfSize:fontSize]&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> retSize = [content boundingRectWithSize:size</span><br><span class="line">                                           options:</span><br><span class="line">                      <span class="built_in">NSStringDrawingTruncatesLastVisibleLine</span> |</span><br><span class="line">                      <span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> |</span><br><span class="line">                      <span class="built_in">NSStringDrawingUsesFontLeading</span></span><br><span class="line">                                        attributes:attribute</span><br><span class="line">                                           context:<span class="literal">nil</span>].size;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> retSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
     
   
 </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/08/IOS零碎知识点/动态获取UILabel的高度和宽度/" data-id="cip86wd9u001fk7bm6gi0q0lk" class="article-share-link" data-share="baidu" data-title="动态获取UILabel的高度和宽度">Share</a>
+        <a data-url="http://yoursite.com/2016/06/08/IOS零碎知识点/动态获取UILabel的高度和宽度/" data-id="cipdffna20006k9bm8xw5eyri" class="article-share-link" data-share="baidu" data-title="动态获取UILabel的高度和宽度">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/06/08/IOS零碎知识点/动态获取UILabel的高度和宽度/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://yoursite.com/2016/06/08/IOS零碎知识点/动态获取UILabel的高度和宽度/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -147,19 +138,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/08/IOS零碎知识点/关于UIScrollView不能响应UITouch事件的解决办法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+    <a href="/2016/06/08/IOS零碎知识点/NSDate/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">
         
-          关于UIScrollView不能响应UITouch事件的解决办法
+          NSDate
         
       </div>
     </a>
   
   
-    <a href="/2016/06/08/IOS零碎知识点/当服务器返回的属性名和模型中的属性名不一致时/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">当服务器返回的属性名和模型中的属性名不一致时</div>
+    <a href="/2016/06/08/IOS零碎知识点/iOS-在-Xcode-中重命名项目名称/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">iOS 在 Xcode 中重命名项目名称</div>
     </a>
   
 </nav>
@@ -177,7 +168,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
     </div>
@@ -190,7 +181,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">57</span></li></ul>
     </div>
@@ -199,12 +190,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+            <a href="/2016/06/08/PHP/MAC下通过XAMPP和PHPStorm配置PHP开发环境/">MAC下通过XAMPP和PHPStorm配置PHP开发环境</a>
           </li>
         
           <li>
@@ -212,29 +203,31 @@
           </li>
         
           <li>
-            <a href="/2016/06/08/IOS/-iOS-录音-上传与播放解析/">iOS 录音-上传与播放解析</a>
+            <a href="/2016/06/08/IOS零碎知识点/Xcode6-0以后如何添加Pch文件/">Xcode6.0以后如何添加Pch文件</a>
           </li>
         
           <li>
-            <a href="/2016/06/08/IOS/IOS中的加密方式MD5、sha512/">IOS中的加密方式MD5、sha512</a>
+            <a href="/2016/06/08/IOS零碎知识点/IOS从URL中获得文件名/">IOS从URL中获得文件名</a>
           </li>
         
           <li>
-            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+            <a href="/2016/06/08/IOS零碎知识点/NSDate/">NSDate</a>
           </li>
         
       </ul>
     </div>
 
+<!-- 注释
     <div>
     <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3DxlVfYXp9ADwcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XLjf2vlNIV67lLJMA%2Bho7WYmSMhGfkQJ74bkh964woV3ioLW0YUqK3wnwlhM%2BcmZI9%2F94Eih2V31gk4WEl1q9KXrO7VWU786ernpVPht%2FCebGyQXcCgqLpl&pvid=10_116.237.201.134_8763_1465440920643"><img style="margin:0 10px 0 0;" width="275" height="275" src="http://7d9kpb.com1.z0.glb.clouddn.com/%E5%A5%BD%E8%A7%86%E5%8A%9B.jpg"></a>
     </div>
+    -->
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Links</h3>
+    <h3 class="widget-title">友情链接</h3>
     <div class="widget">
       <ul>
         
@@ -271,7 +264,7 @@
 </nav>
   <!-- totop start -->
 <div id="totop">
-<a title="totop"><img src="/img/scrollup.png"/></a>
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 </div>
 
 <!-- totop end -->
