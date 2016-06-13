@@ -40,8 +40,7 @@ UITableView显示数据的方式
 遵">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-ad6340e5912a7c0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-d42a295c87e334dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266271-c62616977a6d6709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-06-08T01:37:44.000Z">
+<meta property="og:updated_time" content="2016-06-13T07:10:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView">
 <meta name="twitter:description" content="UITableView标签（空格分隔）： UI
@@ -306,6 +305,32 @@ UITableView显示数据的方式
 <li><p>代码（Frame和Autolayout）</p>
 </li>
 </ul>
+<h4 id="通过layoutSubViews方法自定义cell的步骤（每个cell的高度都不一样，每个cell里面显示的内容也不一样）"><a href="#通过layoutSubViews方法自定义cell的步骤（每个cell的高度都不一样，每个cell里面显示的内容也不一样）" class="headerlink" title="通过layoutSubViews方法自定义cell的步骤（每个cell的高度都不一样，每个cell里面显示的内容也不一样）"></a>通过layoutSubViews方法自定义cell的步骤（每个cell的高度都不一样，每个cell里面显示的内容也不一样）</h4><p>eg: 新浪微博的cell</p>
+<ul>
+<li><p>1.新建一个继承自UITableViewCell的子类</p>
+</li>
+<li><p>2.在initWithStyle:方法中进行子控件的初始化</p>
+<ul>
+<li>将有可能显示的所有子控件都添加到contentView中</li>
+<li>顺便设置子控件的一些属性(一次性的设置:字体、文字颜色、背景等)</li>
+</ul>
+</li>
+<li><p>3.提供两个模型</p>
+<ul>
+<li>一个是数据模型(文字数据 + 图片数据)</li>
+<li>一个是frame模型(数据模型 + 所有子控件的frame + cell的高度)</li>
+</ul>
+</li>
+<li><p>4.cell应该提供一个frame模型属性</p>
+<ul>
+<li>将frame模型传递给cell</li>
+<li>cell根据frame模型给子控件设置frame，根据数据模型给子控件设置数据</li>
+<li>cell根据数据模型决定显示和隐藏哪些子控件</li>
+</ul>
+</li>
+<li><p>5.在tableView的代理方法中返回cell的高度</p>
+</li>
+</ul>
 <h2 id="数据更新（添加、删除、更改）"><a href="#数据更新（添加、删除、更改）" class="headerlink" title="数据更新（添加、删除、更改）"></a>数据更新（添加、删除、更改）</h2><ul>
 <li>tableView里面需要添加、删除、更改新的cell数据，只需要操作模型数据，然后调用reloadData方法即可</li>
 <li>这些操作都要求模型的数量和cell的数量必须相同</li>
@@ -368,15 +393,12 @@ UITableView显示数据的方式
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭自动调整内部子控件</span></span><br><span class="line"><span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="在cell之间设置一定的间隙"><a href="#在cell之间设置一定的间隙" class="headerlink" title="在cell之间设置一定的间隙"></a>在cell之间设置一定的间隙</h3><p>通过重写cell的setFrame方法即可实现</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)setFrame:(<span class="built_in">CGRect</span>)frame&#123;</span><br><span class="line">    frame.size.height -= <span class="number">10</span>;</span><br><span class="line">    [<span class="keyword">super</span> setFrame:frame];</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)awakeFromNib&#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">    <span class="keyword">self</span>.selectionStyle = <span class="built_in">UITableViewCellAccessoryNone</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现效果如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/266271-c62616977a6d6709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终效果图.png"></p>
-
     
   
 </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/08/UI/UITableView/" data-id="cipdhjtty00265ebms0x5w4o2" class="article-share-link" data-share="baidu" data-title="UITableView">Share</a>
+        <a data-url="http://yoursite.com/2016/06/08/UI/UITableView/" data-id="cipdokp14000wcnbm1r1y34rz" class="article-share-link" data-share="baidu" data-title="UITableView">Share</a>
       
 
       
@@ -390,19 +412,19 @@ UITableView显示数据的方式
     
 <nav id="article-nav">
   
-    <a href="/2016/06/08/UI/XIB和代码自定义控件的步骤/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/08/UI/IOS中生成二维码、扫描二维码/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          XIB和代码自定义控件的步骤
+          IOS中生成二维码、扫描二维码
         
       </div>
     </a>
   
   
-    <a href="/2016/06/08/UI/storyBoard及基本拖线基本点/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/08/UI/UICollectionView、瀑布流布局/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">storyBoard及基本拖线基本点</div>
+      <div class="article-nav-title">UICollectionView、瀑布流布局</div>
     </a>
   
 </nav>
@@ -447,23 +469,23 @@ UITableView显示数据的方式
       <ul>
         
           <li>
-            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+            <a href="/2016/06/08/UI/多控制器管理/">多控制器管理</a>
           </li>
         
           <li>
-            <a href="/2016/06/08/未分类/生成二维码名片的数据格式/">生成二维码名片的数据格式</a>
+            <a href="/2016/06/08/IOS/常用分类（category）/">常用分类（category）</a>
           </li>
         
           <li>
-            <a href="/2016/06/08/IOS/-iOS-录音-上传与播放解析/">iOS 录音-上传与播放解析</a>
+            <a href="/2016/06/08/IOS零碎知识点/IOS从URL中获得文件名/">IOS从URL中获得文件名</a>
           </li>
         
           <li>
-            <a href="/2016/06/08/IOS/IOS中数据持久化方式/">IOS中数据持久化方式</a>
+            <a href="/2016/06/08/IOS零碎知识点/NSDate/">NSDate</a>
           </li>
         
           <li>
-            <a href="/2016/06/08/IOS/IOS中的正则/">IOS中的正则</a>
+            <a href="/2016/06/08/IOS零碎知识点/UIView,UIButton,UIImageView等设置圆角，设置阴影，设置边框的方法/">UIView,UIButton,UIImageView等设置圆角，设置阴影，设置边框的方法</a>
           </li>
         
       </ul>
