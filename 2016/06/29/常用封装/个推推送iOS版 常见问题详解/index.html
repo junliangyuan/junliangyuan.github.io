@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>个推推送iOS版 常见问题详解 | 袁俊亮技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="个推推送iOS版 常见问题详解
+1、提交了.p12文件后多久可以测试？提交后10分钟左右才可以测试，并不是立即生效的。
+2、应用在后台时接收不到消息，即APNS消息接收不到？
+
+先去查看CID和APPID绑定是否正确。
+根据CID去查devicetoken，确认CID和devicetoken绑定是否正确。
+查看证书是否上传错误
+服务端推送的，请检查离线时间是否设置。
+
+3、devicetoken和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个推推送iOS版 常见问题详解">
+<meta property="og:url" content="http://yoursite.com/2016/06/29/常用封装/个推推送iOS版 常见问题详解/index.html">
+<meta property="og:site_name" content="袁俊亮技术博客">
+<meta property="og:description" content="个推推送iOS版 常见问题详解
+1、提交了.p12文件后多久可以测试？提交后10分钟左右才可以测试，并不是立即生效的。
+2、应用在后台时接收不到消息，即APNS消息接收不到？
+
+先去查看CID和APPID绑定是否正确。
+根据CID去查devicetoken，确认CID和devicetoken绑定是否正确。
+查看证书是否上传错误
+服务端推送的，请检查离线时间是否设置。
+
+3、devicetoken和">
+<meta property="og:updated_time" content="2016-06-29T07:18:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个推推送iOS版 常见问题详解">
+<meta name="twitter:description" content="个推推送iOS版 常见问题详解
+1、提交了.p12文件后多久可以测试？提交后10分钟左右才可以测试，并不是立即生效的。
+2、应用在后台时接收不到消息，即APNS消息接收不到？
+
+先去查看CID和APPID绑定是否正确。
+根据CID去查devicetoken，确认CID和devicetoken绑定是否正确。
+查看证书是否上传错误
+服务端推送的，请检查离线时间是否设置。
+
+3、devicetoken和">
+  
+    <link rel="alternative" href="/atom.xml" title="袁俊亮技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">袁俊亮技术博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-常用封装/个推推送iOS版 常见问题详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/29/常用封装/个推推送iOS版 常见问题详解/" class="article-date">
+  <time datetime="2016-06-29T07:18:59.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      个推推送iOS版 常见问题详解
+    </h1>
+  
+
+      </header>
+    
+<div class="article-entry" itemprop="articleBody">
+  
+    
+    
+      <p>个推推送iOS版 常见问题详解</p>
+<p>1、提交了.p12文件后多久可以测试？<br>提交后10分钟左右才可以测试，并不是立即生效的。</p>
+<p>2、应用在后台时接收不到消息，即APNS消息接收不到？</p>
+<ol>
+<li>先去查看CID和APPID绑定是否正确。</li>
+<li>根据CID去查devicetoken，确认CID和devicetoken绑定是否正确。</li>
+<li>查看证书是否上传错误</li>
+<li>服务端推送的，请检查离线时间是否设置。</li>
+</ol>
+<p>3、devicetoken和Clientid绑定错误怎么办？<br>原因如下：换证书环境后，devicetoken是变掉了，但是CID没变导致不会立即重新绑定devicetoken(一般是24小时后会重新绑定)，服务端记录的还是原来的devicetoken。解决办法如下：需要一个gxsdkconfig.plist文件重新放在工程中，打包，卸载原来的应用并重新安装。CID变化了会重新绑定devicetoken，这样绑定就不会有问题了。</p>
+<p>4、在发布到appstroe时，证书环境需要更换吗？</p>
+<ol>
+<li>开发的时候需要上传开发证书，开发测试OK后，发布到appstore之前，需要把证书更换成生产证书，证书更换后10分钟左右生效。</li>
+<li>苹果设备上，CID是唯一的，一般不会变化，一般不建议重新生成CID。</li>
+<li>如果CID与deviceToken绑定错误，需要重新生成一个CID来方便测试的操作方法：需要gxsdkconfig.plist文件，重新打包，把原来应用卸载重新安装新打包的这个。</li>
+</ol>
+<p>5、更换证书后，客户端隔多久会重新绑定？</p>
+<ol>
+<li>证书更换后, 过24小时才会重新绑定一次，这时devicetoken会变掉。24小时内做测试的话，会因Clientid和devicetoken绑定问题导致消息接收不到，因为证书更换后的devicetoken变掉了但没有更新到服务器，导致服务端查询到的devicetoken是错误的。</li>
+</ol>
+<p>6、无效的devicetoken问题</p>
+<ol>
+<li>一般来说是证书环境的问题，更换证书环境导致的。</li>
+<li>先看clientid和devicetoken绑定是否有问题。</li>
+<li>查看本地的证书环境是否与平台上传的证书环境一致。</li>
+<li>查看证书是否有过期。</li>
+</ol>
+<p>6、为什么IOS客户端会收到两条一样的消息？</p>
+<ol>
+<li>是因为一个devicetoken绑定了两个Clientid导致的。</li>
+<li>因证书环境变更，导致Clientid与devicetoken绑定变化，但服务端的数据没有更新，还是与旧的devicetoken绑定的。当用plist文件获取到新的clientid后，会重新绑定一下，这时新旧两个clientid都会绑定到同一个devicetoken上。当群推消息时，会根据clientid找到devicetoken进行APNS发送，这时新旧两个clientid都会发送一条数据，导致客户端会接收到两条数据。</li>
+</ol>
+<p>7、Tcp方式和http在性能上哪个比较好，各适用与哪个场景？<br>tcp是长链接，吞吐量更大，性能更好一些<br>tcp不支持toApp群推的<br>群推toApp用http方式的，因为只有一个请求</p>
+<p>8、IOS平台推送成功接收，服务端代码推送toApp却接收不到，返回AppIdNoUsers错误？<br>查看代码里的phoneTypeList中添加的是否为IOS。要修改为add(“IOS”)</p>
+<p>9、IOS签名失败的解决办法：<br>问题描述：The applicationdoes not have a valid signature.<br>解决办法：把BundleIdentifier 改成你自己的id,也就是说这里应该填你们证书里面已经申请的那个应用id。</p>
+<p>10、生产证书下怎么获取devicetoken？<br>生产证书不能在Xcode里进行联机debug，要先把应用包打出来，安装在手机上，然后在Xcode的origanizer-&gt;device选择你的设置，然后在consloe里查看日志，devicetoken和clientid都会打印出来的。</p>
+<p>11、ios开发证书以及生产证书打包教程<br>1、生产环境证书：<a href="http://wenku.baidu.com/link?url=YhxG022XH_BlvRRZxutnDz0ANEvCm6W9218tIVzX_PEHNtZ2T1K9Y_d-g7jm9-JnFAcWByXcJF6EqHBmVeXlbvmmLfElXtb5-kuf2il4Qae" target="_blank" rel="external">http://wenku.baidu.com/link?url=YhxG022XH_BlvRRZxutnDz0ANEvCm6W9218tIVzX_PEHNtZ2T1K9Y_d-g7jm9-JnFAcWByXcJF6EqHBmVeXlbvmmLfElXtb5-kuf2il4Qae</a><br>2、开发环境证书：<a href="http://wenku.baidu.com/view/6dddcd27192e45361166f505.html" target="_blank" rel="external">http://wenku.baidu.com/view/6dddcd27192e45361166f505.html</a></p>
+<p>12、关于ios8的通知功能：<br>1.如果使用ios8sdk编译，需要使用新的registerForRemoteNotifications/registerUserNotificationSettings接口，否则无法获取devicetoken<br>2.如果使用ios8以前的sdk编译，接口无需变动，直接使用老版本的registerForRemoteNotifications接口即可</p>
+<p>13、收到通知后，点击通知栏后怎么让这条通知在通知栏里消失。<br>这个通知本来是不会清掉的，需要客户端自己写代码才能清掉，可以参考这里 <a href="http://www.cocoachina.com/ask/questions/show/99491" target="_blank" rel="external">http://www.cocoachina.com/ask/questions/show/99491</a></p>
+
+    
+  
+</div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/29/常用封装/个推推送iOS版 常见问题详解/" data-id="ciq0k3cma0035vxbm92xk7s0s" class="article-share-link" data-share="baidu" data-title="个推推送iOS版 常见问题详解">Share</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/06/29/常用封装/个推推送iOS版 常见问题详解/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/28/IOS/部署项目到开源中国社区/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">部署项目到开源中国社区</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/29/常用封装/个推推送iOS版 常见问题详解/" data-title="个推推送iOS版 常见问题详解" data-url="http://yoursite.com/2016/06/29/常用封装/个推推送iOS版 常见问题详解/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IOS零碎知识点/">IOS零碎知识点</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC系统/">MAC系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用封装/">常用封装</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/行业观点/">行业观点</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/29/常用封装/个推推送iOS版 常见问题详解/">个推推送iOS版 常见问题详解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/28/IOS/部署项目到开源中国社区/">部署项目到开源中国社区</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/25/常用封装/百度地图、高德地图导航封装工具类/">百度地图、高德地图导航封装工具类</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/25/常用封装/iOS地图上WGS84、GCJ-02、BD-09互转解决方案/">iOS地图上WGS84、GCJ-02、BD-09互转解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/PHP/MAC-OS-X上更改XAMPP的根目录/">MAC OS X上更改XAMPP的根目录</a>
+          </li>
+        
+      </ul>
+    </div>
+
+<!-- 注释
+    <div>
+    <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3DxlVfYXp9ADwcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XLjf2vlNIV67lLJMA%2Bho7WYmSMhGfkQJ74bkh964woV3ioLW0YUqK3wnwlhM%2BcmZI9%2F94Eih2V31gk4WEl1q9KXrO7VWU786ernpVPht%2FCebGyQXcCgqLpl&pvid=10_116.237.201.134_8763_1465440920643"><img style="margin:0 10px 0 0;" width="275" height="275" src="http://7d9kpb.com1.z0.glb.clouddn.com/%E5%A5%BD%E8%A7%86%E5%8A%9B.jpg"></a>
+    </div>
+    -->
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.yuanjunliang.cn/" target="_blank">袁俊亮个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 袁俊亮<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"junliangyuan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
